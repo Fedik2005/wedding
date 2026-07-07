@@ -1,0 +1,2866 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&family=Inter+Tight:wght@700;800;900&family=Jost:wght@300;400;500;600&display=swap");.wedding-top-design-2 {
+    color-scheme: light;
+    --page-bg: #f3f3f1;
+    --text-main: #473125;
+    --text-muted: #6b6b6b;
+    --subtle-line: #d8d8d8;
+    --frame-pad: 24px;
+    --section-gap: 12rem;
+    --hero-height: 520px;
+    --hero-top: 270px;
+    --header-height: 72px;
+    --title-size: 41px;
+    --subtitle-size: 34px;
+    --body-copy-size: 16.5px;
+    --body-copy-leading: 1.82;
+    --form-copy-size: 16px;
+    position: relative;
+    min-height: 100vh;
+    min-height: 100svh;
+    overflow-x: hidden;
+    background: transparent;
+    color: var(--text-main);
+    font-family: Jost,sans-serif;
+    font-size: 16px;
+    line-height: 1.55;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale
+}
+
+.wedding-top-design-2 *,.wedding-top-design-2 :after,.wedding-top-design-2 :before {
+    box-sizing: border-box
+}
+
+.wedding-top-design-2 h1,.wedding-top-design-2 h2,.wedding-top-design-2 h3,.wedding-top-design-2 p {
+    margin: 0
+}
+
+.wedding-top-design-2 a {
+    color: inherit;
+    text-decoration: none
+}
+
+.wedding-top-design-2 .frame-padding {
+    padding-inline:var(--frame-pad)}
+
+.wedding-top-design-2 .wtd2-video-shell {
+    position: fixed;
+    top: -12svh;
+    left: 0;
+    width: 100%;
+    height: calc(100svh + 24svh);
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none
+}
+
+.wedding-top-design-2 .wtd2-video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.wedding-top-design-2 .mobile-frame {
+    position: relative;
+    z-index: 2;
+    min-height: 100vh;
+    min-height: 100svh;
+    width: 100%;
+    max-width: 414px;
+    margin: 0 auto;
+    background: transparent
+}
+
+.wedding-top-design-2 .hero-stage {
+    position: relative;
+    min-height: var(--hero-height);
+    padding-top: var(--hero-top)
+}
+
+.wedding-top-design-2 .hero-kicker {
+    position: absolute;
+    top: 34px;
+    left: var(--frame-pad);
+    right: var(--frame-pad);
+    z-index: 2
+}
+
+.wedding-top-design-2 .hero-content {
+    position: relative;
+    z-index: 2;
+    padding-right: 0
+}
+
+.wedding-top-design-2 .hero-names {
+    max-width: 100%;
+    width: 100%
+}
+
+.wedding-top-design-2 .hero-name {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    font-family: Inter Tight,sans-serif;
+    font-size: 72px;
+    font-weight: 800;
+    line-height: .88;
+    letter-spacing: -.045em;
+    text-transform: uppercase;
+    white-space: nowrap
+}
+
+.wedding-top-design-2 .hero-link {
+    margin-top: 3px;
+    margin-left: 2px;
+    font-family: Cormorant Garamond,serif;
+    font-size: 37px;
+    font-weight: 300;
+    line-height: 1;
+    letter-spacing: -.04em
+}
+
+.wedding-top-design-2 .hero-name--second {
+    margin-top: 3px
+}
+
+.wedding-top-design-2 .hero-date,.wedding-top-design-2 .hero-kicker {
+    margin-left: 2px;
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    color: var(--text-main)
+}
+
+.wedding-top-design-2 .hero-date {
+    margin-top: 24px
+}
+
+.wedding-top-design-2 .main-content {
+    padding-bottom: 6rem
+}
+
+.wedding-top-design-2 .section {
+    margin-top: var(--section-gap)
+}
+
+.wedding-top-design-2 .section-header {
+    position: relative;
+    height: var(--header-height);
+    --subtitle-left: 0px;
+    --subtitle-top: 36px;
+    --subtitle-left-lg: var(--subtitle-left);
+    --subtitle-top-lg: var(--subtitle-top);
+    --subtitle-left-xl: var(--subtitle-left-lg);
+    --subtitle-top-xl: var(--subtitle-top-lg)
+}
+
+.wedding-top-design-2 .section-title {
+    position: absolute;
+    top: 0;
+    left: 0;
+    font-family: Inter Tight,sans-serif;
+    font-size: var(--section-title-fit-size,var(--title-size));
+    font-weight: 800;
+    line-height: .92;
+    letter-spacing: -.06em;
+    text-transform: uppercase;
+    white-space: nowrap
+}
+
+.wedding-top-design-2 .section-subtitle {
+    position: absolute;
+    top: var(--subtitle-top);
+    left: var(--subtitle-left);
+    width: max-content;
+    max-width: none;
+    font-family: Cormorant Garamond,serif;
+    font-size: var(--subtitle-size);
+    font-weight: 300;
+    line-height: .42;
+    letter-spacing: -.04em;
+    color: rgba(36,36,36,.9);
+    white-space: nowrap;
+    transform: translateX(var(--subtitle-shift-x,0)) scale(var(--subtitle-scale,1));
+    transform-origin: right center;
+    will-change: transform
+}
+
+.wedding-top-design-2 .section-header--guests {
+    --subtitle-left: 135px;
+    --subtitle-left-lg: 226px;
+    --subtitle-left-xl: 252px
+}
+
+.wedding-top-design-2 .section-header--place {
+    --subtitle-left: 70px;
+    --subtitle-left-lg: 154px;
+    --subtitle-left-xl: 170px
+}
+
+.wedding-top-design-2 .section-header--map {
+    --subtitle-left: 108px;
+    --subtitle-left-lg: 178px;
+    --subtitle-left-xl: 196px
+}
+
+.wedding-top-design-2 .section-header--time {
+    --subtitle-left: 50px;
+    --subtitle-left-lg: 80px;
+    --subtitle-left-xl: 88px
+}
+
+.wedding-top-design-2 .section-header--dress {
+    --subtitle-left: 171px;
+    --subtitle-left-lg: 236px;
+    --subtitle-left-xl: 262px
+}
+
+.wedding-top-design-2 .section-header--gifts {
+    --subtitle-left: 68px;
+    --subtitle-left-lg: 150px;
+    --subtitle-left-xl: 168px
+}
+
+.wedding-top-design-2 .section-header--attendance {
+    --subtitle-left: 150px;
+    --subtitle-left-lg: 294px;
+    --subtitle-left-xl: 328px
+}
+
+.wedding-top-design-2 .copy {
+    margin-top: 1rem;
+    max-width: 308px;
+    display: grid;
+    gap: 1.5rem;
+    font-size: var(--body-copy-size);
+    line-height: var(--body-copy-leading)
+}
+
+.wedding-top-design-2 .place-copy {
+    margin-top: .5rem;
+    max-width: 272px
+}
+
+.wedding-top-design-2 .place-name {
+    font-family: Inter Tight,sans-serif;
+    font-size: 20px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -.05em;
+    text-transform: uppercase
+}
+
+.wedding-top-design-2 .place-address {
+    margin-top: .25rem;
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.7
+}
+
+.wedding-top-design-2 .map-shell {
+    margin-top: 1rem;
+    max-width: 320px;
+    display: grid;
+    gap: 14px
+}
+
+.wedding-top-design-2 .map-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap
+}
+
+.wedding-top-design-2 .map-kicker,.wedding-top-design-2 .map-link {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: .24em;
+    text-transform: uppercase
+}
+
+.wedding-top-design-2 .map-kicker {
+    color: rgba(17,17,17,.72)
+}
+
+.wedding-top-design-2 .map-link {
+    color: var(--text-main);
+    text-decoration: underline;
+    text-decoration-color: rgba(17,17,17,.18);
+    text-underline-offset: 4px
+}
+
+.wedding-top-design-2 .map-fallback,.wedding-top-design-2 .map-frame {
+    overflow: hidden;
+    border: 1px solid rgba(10,10,10,.08);
+    background: linear-gradient(180deg,rgba(255,255,255,.92),rgba(247,243,236,.86)),rgba(255,255,255,.76)
+}
+
+.wedding-top-design-2 .map-frame {
+    aspect-ratio: 4/5
+}
+
+.wedding-top-design-2 .map-frame iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    border: 0
+}
+
+.wedding-top-design-2 .map-fallback {
+    min-height: 160px;
+    padding: 20px 18px;
+    display: flex;
+    align-items: center
+}
+
+.wedding-top-design-2 .map-fallback-copy {
+    display: grid;
+    gap: 10px
+}
+
+.wedding-top-design-2 .map-fallback p {
+    color: var(--text-muted);
+    font-size: 15px;
+    line-height: 1.72
+}
+
+.wedding-top-design-2 .timeline {
+    margin-top: .5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.6rem
+}
+
+.wedding-top-design-2 .timeline-item {
+    text-align: center
+}
+
+.wedding-top-design-2 .timeline-time {
+    font-family: Inter Tight,sans-serif;
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -.06em
+}
+
+.wedding-top-design-2 .timeline-label {
+    margin-top: 2px;
+    color: #5b5b5b;
+    font-size: 20px;
+    line-height: 1.4
+}
+
+.wedding-top-design-2 .timeline-sub {
+    margin-top: 4px;
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.5
+}
+
+.wedding-top-design-2 .swatch-row {
+    margin-top: .5rem;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap
+}
+
+.wedding-top-design-2 .fabric-swatch {
+    position: relative;
+    width: 62px;
+    height: 62px;
+    overflow: hidden;
+    border: 1px solid rgba(10,10,10,.08);
+    border-radius: 999px;
+    flex: 0 0 auto
+}
+
+.wedding-top-design-2 .fabric-swatch:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(145deg,rgba(255,255,255,.34),rgba(255,255,255,0) 38%,rgba(0,0,0,.14));
+    mix-blend-mode: screen;
+    opacity: .75
+}
+
+.wedding-top-design-2 .dress-copy {
+    margin-top: 1.25rem;
+    max-width: 306px;
+    font-size: 16.5px;
+    line-height: 1.78;
+    display: grid;
+    gap: 14px
+}
+
+.wedding-top-design-2 .gifts-copy {
+    margin-top: 1rem;
+    max-width: 308px;
+    display: grid;
+    gap: 14px;
+    color: var(--text-main);
+    font-size: var(--body-copy-size);
+    line-height: 1.78
+}
+
+.wedding-top-design-2 .lookbook-link {
+    display: inline-block;
+    margin-top: .25rem;
+    font-size: 14px;
+    font-weight: 500;
+    color: #4d4d4d;
+    text-decoration: underline;
+    text-decoration-color: rgba(0,0,0,.2);
+    text-underline-offset: 4px
+}
+
+.wedding-top-design-2 .rsvp-shell {
+    margin-top: 1.75rem
+}
+
+.wedding-top-design-2 .rsvp-description {
+    max-width: 330px;
+    margin-bottom: 1.25rem;
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.7
+}
+
+.wedding-top-design-2 .section--bottom-photo {
+    margin-top: 7rem
+}
+
+.wedding-top-design-2 .bottom-photo-frame {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 2px;
+    background: rgba(255,255,255,.14)
+}
+
+.wedding-top-design-2 .bottom-photo-image {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: var(--silk-photo-max-height,none);
+    object-fit: cover
+}
+
+.wedding-top-design-2 .section-header--dress~.dress-code-photo-frame {
+    margin-top: 1.5rem
+}
+
+.wedding-top-design-2 .section--bottom-photo .bottom-photo-frame {
+    max-width: 330px
+}
+
+.wedding-top-design-2 .silk-reveal {
+    opacity: 0;
+    transform: translate3d(0,28px,0);
+    transition: opacity .95s cubic-bezier(.22,1,.36,1),transform .95s cubic-bezier(.22,1,.36,1);
+    transition-delay: var(--reveal-delay,0s);
+    will-change: transform,opacity
+}
+
+.wedding-top-design-2 .silk-reveal.visible {
+    opacity: 1;
+    transform: translateZ(0)
+}
+
+.wedding-top-design-2 .silk-reveal--soft {
+    transform: translate3d(0,18px,0)
+}
+
+.wedding-top-design-2 .silk-reveal--hero-kicker {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none
+}
+
+.wedding-top-design-2 .silk-reveal--hero {
+    position: relative;
+    z-index: 2;
+    transform: translate3d(0,32px,0)
+}
+
+.wedding-top-design-2 .silk-reveal--hero.visible,.wedding-top-design-2 .silk-reveal--soft.visible {
+    transform: translateZ(0)
+}
+
+.wedding-top-design-2 .silk-reveal .hero-content,.wedding-top-design-2 .silk-reveal .hero-kicker,.wedding-top-design-2 .silk-reveal>.section {
+    will-change: auto
+}
+
+.wedding-top-design-2 .rsvp-form {
+    display: grid;
+    gap: 1.75rem
+}
+
+.wedding-top-design-2 .form-group>label {
+    display: block;
+    margin-bottom: .5rem;
+    font-size: var(--form-copy-size);
+    line-height: 1.55
+}
+
+.wedding-top-design-2 .form-group input[type=text],.wedding-top-design-2 .form-group textarea {
+    width: 100%;
+    padding: 13px 16px;
+    border: 1px solid var(--text-main);
+    background: transparent;
+    color: var(--text-main);
+    font-size: 16px;
+    transition: border-color .2s ease,background-color .2s ease
+}
+
+.wedding-top-design-2 .form-group textarea {
+    min-height: 120px;
+    resize: vertical
+}
+
+.wedding-top-design-2 .form-group input::placeholder,.wedding-top-design-2 .form-group textarea::placeholder {
+    color: #8a8a8a;
+    font-size: 16px
+}
+
+.wedding-top-design-2 .form-group input:focus,.wedding-top-design-2 .form-group textarea:focus {
+    outline: none;
+    border-color: var(--text-main);
+    background: rgba(255,255,255,.18)
+}
+
+.wedding-top-design-2 .form-hint {
+    display: block;
+    margin-top: .5rem;
+    color: var(--text-muted);
+    font-size: 14px;
+    line-height: 1.5
+}
+
+.wedding-top-design-2 .check-list,.wedding-top-design-2 .radio-group {
+    display: grid;
+    gap: 10px
+}
+
+.wedding-top-design-2 .check-item,.wedding-top-design-2 .radio-option label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 1.5
+}
+
+.wedding-top-design-2 .check-item input,.wedding-top-design-2 .radio-option input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    appearance: none;
+    flex: 0 0 auto;
+    width: 15px;
+    height: 15px;
+    margin-top: 2px;
+    border: 1px solid rgba(10,10,10,.76);
+    background: transparent;
+    transition: border-color .18s ease,background-color .18s ease,box-shadow .18s ease
+}
+
+.wedding-top-design-2 .radio-option input {
+    border-radius: 999px
+}
+
+.wedding-top-design-2 .checkmark,.wedding-top-design-2 .radio-option label:before {
+    content: "";
+    flex: 0 0 auto;
+    width: 17px;
+    height: 17px;
+    border: 1.5px solid rgba(10,10,10,.76);
+    background: transparent
+}
+
+.wedding-top-design-2 .radio-option label:before {
+    border-radius: 999px;
+    position: relative
+}
+
+.wedding-top-design-2 .radio-option label {
+    position: relative
+}
+
+.wedding-top-design-2 .checkmark {
+    border-radius: 0;
+    position: relative
+}
+
+.wedding-top-design-2 .check-item input:checked~.checkmark,.wedding-top-design-2 .radio-option input:checked+label:before {
+    border-color: rgba(10,10,10,1)
+}
+
+.wedding-top-design-2 .radio-option input:checked+label:after {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 50%;
+    width: 9px;
+    height: 9px;
+    border-radius: 999px;
+    background: rgba(10,10,10,1);
+    transform: translateY(-50%)
+}
+
+.wedding-top-design-2 .check-item input:checked~.checkmark:after {
+    content: "";
+    position: absolute;
+    inset: 3px;
+    background: rgba(10,10,10,1)
+}
+
+.wedding-top-design-2 .submit-btn {
+    display: inline-block;
+    padding: 11px 28px;
+    border: 1px solid var(--text-main);
+    background: transparent;
+    color: var(--text-main);
+    font-size: 16px;
+    line-height: 1;
+    letter-spacing: .02em;
+    cursor: pointer;
+    transition: background-color .2s ease,color .2s ease
+}
+
+.wedding-top-design-2 .submit-btn:hover {
+    background: var(--text-main);
+    color: #f3f3f1
+}
+
+.wedding-top-design-2 .success-title {
+    font-family: Inter Tight,sans-serif;
+    font-size: 28px;
+    font-weight: 800;
+    letter-spacing: -.04em
+}
+
+.wedding-top-design-2 .success-subtitle {
+    margin-top: 10px;
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.7
+}
+
+.wedding-top-design-2 .template-badge {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    padding: 18px 16px 28px
+}
+
+.wedding-top-design-2 .template-badge a {
+    display: inline-block;
+    padding: 0;
+    font-size: 12px;
+    color: rgba(17,17,17,.56);
+    letter-spacing: .04em;
+    text-decoration: none
+}
+
+@media (prefers-reduced-motion:reduce) {
+    .wedding-top-design-2 .silk-reveal {
+        opacity: 1;
+        transition: none;
+        transform: none;
+        will-change: auto
+    }
+}
+
+@media (min-width: 390px) {
+    .wedding-top-design-2 {
+        --frame-pad:40px
+    }
+}
+
+@media (min-width: 768px) {
+    .wedding-top-design-2 {
+        padding:32px 0
+    }
+}
+
+@media (min-width: 1024px) {
+    .wedding-top-design-2 {
+        --frame-pad:56px;
+        --hero-height: 640px;
+        --hero-top: 178px;
+        --header-height: 126px;
+        --title-size: 67px;
+        --subtitle-size: 57px;
+        --body-copy-size: 17px;
+        --body-copy-leading: 1.92;
+        padding: 44px 0 64px
+    }
+
+    .wedding-top-design-2 .mobile-frame {
+        max-width: 980px
+    }
+
+    .wedding-top-design-2 .hero-content {
+        padding-right: 0
+    }
+
+    .wedding-top-design-2 .hero-kicker {
+        top: 46px
+    }
+
+    .wedding-top-design-2 .hero-names {
+        max-width: 560px
+    }
+
+    .wedding-top-design-2 .hero-name {
+        font-size: 134px
+    }
+
+    .wedding-top-design-2 .hero-link {
+        margin-top: 4px;
+        margin-left: 4px;
+        font-size: 62px
+    }
+
+    .wedding-top-design-2 .hero-date,.wedding-top-design-2 .hero-kicker {
+        margin-left: 4px;
+        font-size: 17px
+    }
+
+    .wedding-top-design-2 .hero-date {
+        margin-top: 36px
+    }
+
+    .wedding-top-design-2 .section-subtitle {
+        top: 58px;
+        left: var(--subtitle-left-lg);
+        line-height: .58
+    }
+
+    .wedding-top-design-2 .copy {
+        margin-top: 1.5rem;
+        max-width: 590px
+    }
+
+    .wedding-top-design-2 .place-copy {
+        margin-top: 2rem;
+        max-width: 460px
+    }
+
+    .wedding-top-design-2 .map-shell {
+        margin-top: 1.75rem;
+        max-width: 620px
+    }
+
+    .wedding-top-design-2 .map-frame {
+        aspect-ratio: 16/8.8
+    }
+
+    .wedding-top-design-2 .map-fallback {
+        min-height: 180px;
+        padding: 24px 26px
+    }
+
+    .wedding-top-design-2 .place-name {
+        font-size: 28px
+    }
+
+    .wedding-top-design-2 .place-address {
+        margin-top: .5rem;
+        font-size: 17px
+    }
+
+    .wedding-top-design-2 .timeline {
+        margin-top: 3rem;
+        flex-direction: row;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 2.5rem
+    }
+
+    .wedding-top-design-2 .timeline-item {
+        text-align: left
+    }
+
+    .wedding-top-design-2 .timeline-time {
+        font-size: 34px
+    }
+
+    .wedding-top-design-2 .timeline-label {
+        margin-top: 4px;
+        font-size: 21px
+    }
+
+    .wedding-top-design-2 .timeline-sub {
+        font-size: 15px
+    }
+
+    .wedding-top-design-2 .swatch-row {
+        margin-top: 2rem;
+        gap: 20px
+    }
+
+    .wedding-top-design-2 .fabric-swatch {
+        width: 78px;
+        height: 78px
+    }
+
+    .wedding-top-design-2 .dress-copy,.wedding-top-design-2 .gifts-copy {
+        margin-top: 1.5rem;
+        max-width: 520px;
+        font-size: 17px;
+        line-height: 1.86
+    }
+
+    .wedding-top-design-2 .rsvp-shell {
+        margin-top: 2.5rem;
+        max-width: 780px
+    }
+
+    .wedding-top-design-2 .rsvp-description {
+        max-width: 760px;
+        margin-bottom: 1.5rem;
+        font-size: 17px;
+        line-height: 1.8
+    }
+
+    .wedding-top-design-2 .section--bottom-photo {
+        margin-top: 8rem
+    }
+
+    .wedding-top-design-2 .bottom-photo-frame {
+        width: fit-content;
+        max-width: min(100%,680px)
+    }
+
+    .wedding-top-design-2 .section--bottom-photo .bottom-photo-frame {
+        width: 100%;
+        max-width: 780px
+    }
+
+    .wedding-top-design-2 .section-header--dress~.dress-code-photo-frame {
+        margin-top: 2.25rem;
+        width: 100%;
+        max-width: 524px
+    }
+
+    .wedding-top-design-2 .bottom-photo-image {
+        --silk-photo-max-height: min(72vh,760px);
+        width: auto;
+        max-width: 100%;
+        object-fit: cover
+    }
+
+    .wedding-top-design-2 .dress-code-photo-frame .bottom-photo-image,.wedding-top-design-2 .section--bottom-photo .bottom-photo-image {
+        width: 100%;
+        max-height: none
+    }
+}
+
+@media (min-width: 1280px) {
+    .wedding-top-design-2 {
+        --frame-pad:80px;
+        --hero-height: 700px;
+        --hero-top: 190px;
+        --header-height: 136px;
+        --title-size: 74px;
+        --subtitle-size: 62px;
+        --body-copy-size: 17.5px
+    }
+
+    .wedding-top-design-2 .mobile-frame {
+        max-width: 1120px
+    }
+
+    .wedding-top-design-2 .hero-kicker {
+        top: 52px
+    }
+
+    .wedding-top-design-2 .hero-names {
+        max-width: 640px
+    }
+
+    .wedding-top-design-2 .hero-name {
+        font-size: 154px
+    }
+
+    .wedding-top-design-2 .hero-link {
+        font-size: 70px
+    }
+
+    .wedding-top-design-2 .hero-date,.wedding-top-design-2 .hero-kicker {
+        font-size: 18px
+    }
+
+    .wedding-top-design-2 .section-subtitle {
+        left: var(--subtitle-left-xl);
+        top: 62px;
+        line-height: .6
+    }
+}
+
+@media (orientation: landscape) and (max-height:600px) and (max-width:1024px) {
+    .wedding-top-design-2 {
+        --frame-pad:32px;
+        --section-gap: 5.5rem;
+        --hero-height: 360px;
+        --hero-top: 96px;
+        --header-height: 58px;
+        --title-size: 36px;
+        --subtitle-size: 30px;
+        --body-copy-size: 15.5px;
+        --body-copy-leading: 1.7
+    }
+
+    .wedding-top-design-2 .wtd2-video-shell {
+        top: 0;
+        height: 100lvh;
+        min-height: 100dvh
+    }
+
+    .wedding-top-design-2 .mobile-frame {
+        max-width: 760px
+    }
+
+    .wedding-top-design-2 .hero-kicker {
+        top: 24px
+    }
+
+    .wedding-top-design-2 .hero-name {
+        font-size: clamp(50px,18vh,70px);
+        line-height: .86
+    }
+
+    .wedding-top-design-2 .hero-link {
+        font-size: clamp(28px,10vh,40px)
+    }
+
+    .wedding-top-design-2 .hero-date,.wedding-top-design-2 .hero-kicker {
+        font-size: 12px;
+        letter-spacing: .22em
+    }
+
+    .wedding-top-design-2 .hero-date {
+        margin-top: 16px
+    }
+
+    .wedding-top-design-2 .copy,.wedding-top-design-2 .map-shell,.wedding-top-design-2 .place-copy {
+        max-width: 560px
+    }
+
+    .wedding-top-design-2 .bottom-photo-frame {
+        width: fit-content;
+        max-width: min(100%,680px)
+    }
+
+    .wedding-top-design-2 .section--bottom-photo .bottom-photo-frame {
+        width: 100%;
+        max-width: 780px
+    }
+
+    .wedding-top-design-2 .section-header--dress~.dress-code-photo-frame {
+        margin-top: 2.25rem;
+        width: 100%;
+        max-width: 524px
+    }
+
+    .wedding-top-design-2 .bottom-photo-image {
+        --silk-photo-max-height: min(72vh,760px);
+        width: auto;
+        max-width: 100%;
+        object-fit: cover
+    }
+
+    .wedding-top-design-2 .dress-code-photo-frame .bottom-photo-image,.wedding-top-design-2 .section--bottom-photo .bottom-photo-image {
+        width: 100%;
+        max-height: none
+    }
+
+    .wedding-top-design-2 .section-header {
+        overflow: hidden
+    }
+}
+
+.wedding-wild-flowers,.wedding-wild-flowers * {
+    box-sizing: border-box
+}
+
+.wedding-wild-flowers {
+    font-family: Cormorant Garamond,serif;
+    color: #3a3a2a;
+    background: #f5f2ed;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    max-width: 100vw;
+    position: relative
+}
+
+.wedding-wild-flowers .page-loader {
+    position: fixed;
+    inset: 0;
+    z-index: 200;
+    background: #f5f2ed;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: opacity .35s ease,visibility .35s ease
+}
+
+.wedding-wild-flowers.page-loaded .page-loader {
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none
+}
+
+.wedding-wild-flowers img {
+    max-width: 100%
+}
+
+.wedding-wild-flowers .hero {
+    height: 100vh;
+    height: 100svh;
+    position: relative;
+    overflow: hidden
+}
+
+.wedding-wild-flowers .hero:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 42%,rgba(255,250,239,0) 34%,rgba(86,74,52,.06) 100%),linear-gradient(180deg,rgba(255,255,255,.04),rgba(56,44,26,.06));
+    pointer-events: none;
+    z-index: 1
+}
+
+.wedding-wild-flowers .pollen-cloud {
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden
+}
+
+.wedding-wild-flowers .pollen {
+    position: absolute;
+    display: block;
+    border-radius: 999px;
+    background: radial-gradient(circle at 35% 35%,rgba(255,255,255,.9) 0,rgba(255,248,215,.7) 35%,rgba(226,207,143,.18) 100%);
+    box-shadow: 0 0 12px rgba(216,196,130,.2);
+    opacity: 0;
+    animation: wild-pollenFloat linear infinite
+}
+
+@keyframes wild-pollenFloat {
+    0% {
+        opacity: 0;
+        transform: translateZ(0) scale(.72)
+    }
+
+    18% {
+        opacity: .42
+    }
+
+    50% {
+        opacity: .22;
+        transform: translate3d(var(--drift-x),calc(var(--drift-y) * -.55),0) scale(1)
+    }
+
+    to {
+        opacity: 0;
+        transform: translate3d(calc(var(--drift-x) * 1.35),calc(var(--drift-y) * -1),0) scale(.86)
+    }
+}
+
+.wedding-wild-flowers .hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    z-index: 0
+}
+
+.wedding-wild-flowers .hero-layout {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center
+}
+
+.wedding-wild-flowers .hero-intro-scene {
+    position: relative;
+    width: min(360px,88vw);
+    height: min(74svh,660px);
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+.wedding-wild-flowers .hero-curtain-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 3;
+    pointer-events: none
+}
+
+.wedding-wild-flowers .hero-envelope-body {
+    position: absolute;
+    inset: 0;
+    opacity: .96;
+    background: radial-gradient(circle at 50% 16%,rgba(255,255,255,.08) 0,rgba(255,255,255,0) 38%),linear-gradient(180deg,rgba(226,211,184,.1),rgba(196,176,141,.1)),url(/images/letter.jpg);
+    background-size: cover;
+    background-position: 50%;
+    box-shadow: inset 0 0 0 1.5px rgba(184,169,126,.88)
+}
+
+.wedding-wild-flowers .hero-flap-top-wrap {
+    position: absolute;
+    inset: 0 0 auto 0;
+    height: 46%;
+    z-index: 4
+}
+
+.wedding-wild-flowers .hero-flap-top-shadow {
+    position: absolute;
+    inset: 0;
+    filter: drop-shadow(0 0 4px rgba(28,16,8,.086))
+}
+
+.wedding-wild-flowers .hero-flap-bottom-wrap {
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 54%;
+    z-index: 3
+}
+
+.wedding-wild-flowers .hero-flap-bottom-shadow {
+    position: absolute;
+    inset: 0;
+    filter: drop-shadow(0 0 4px rgba(28,16,8,.086))
+}
+
+.wedding-wild-flowers .hero-curtain {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background: radial-gradient(circle at 50% 20%,rgba(255,255,255,.12) 0,rgba(255,255,255,0) 36%),linear-gradient(180deg,rgba(248,244,236,.5),rgba(239,231,215,.38)),url(/images/letter.jpg);
+    background-size: cover;
+    background-position: 50%;
+    box-shadow: inset 0 0 0 1.5px rgba(184,169,126,.9)
+}
+
+.wedding-wild-flowers .hero-curtain--top {
+    top: 0;
+    height: 100%;
+    clip-path: polygon(0 0,100% 0,100% 58%,50% 100%,0 58%);
+    z-index: 1
+}
+
+.wedding-wild-flowers .hero-curtain--bottom {
+    bottom: 0;
+    height: 100%;
+    clip-path: polygon(0 100%,100% 100%,100% 42%,50% 0,0 42%);
+    z-index: 3
+}
+
+.wedding-wild-flowers .hero-seal {
+    position: absolute;
+    left: 50%;
+    bottom: -56px;
+    width: 129px;
+    height: 129px;
+    transform: translateX(-50%);
+    filter: drop-shadow(0 0 5px rgba(74,28,18,.658));
+    z-index: 2
+}
+
+.wedding-wild-flowers .hero-seal-image {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain
+}
+
+.wedding-wild-flowers .hero-card {
+    width: 320px;
+    max-width: 85vw;
+    height: calc(70vh - 48px);
+    background: linear-gradient(180deg,rgba(245,242,237,.56),rgba(236,229,217,.42)),url(/images/paper.jpg);
+    background-size: cover;
+    background-position: 50%;
+    background-blend-mode: normal;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 4px;
+    text-align: center;
+    overflow: hidden;
+    box-shadow: 0 26px 65px rgba(120,105,69,.08)
+}
+
+.wedding-wild-flowers .hero-card:before {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    bottom: 20px;
+    left: 20px;
+    border: 2px solid #b8a97e;
+    pointer-events: none
+}
+
+.wedding-wild-flowers .hero-card:after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 22% 18%,rgba(255,255,255,.16) 0,rgba(255,255,255,0) 26%),radial-gradient(circle at 78% 72%,rgba(192,171,130,.08) 0,rgba(192,171,130,0) 30%),linear-gradient(180deg,rgba(255,255,255,.08),rgba(116,96,62,.05));
+    mix-blend-mode: multiply;
+    opacity: .72;
+    pointer-events: none
+}
+
+.wedding-wild-flowers .ornament {
+    width: 200px;
+    height: auto;
+    margin-bottom: 24px
+}
+
+.wedding-wild-flowers .hero-card-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transform: scale(var(--hero-card-content-scale,1));
+    transform-origin: center center
+}
+
+.wedding-wild-flowers .hero-copy,.wedding-wild-flowers .hero-meta,.wedding-wild-flowers .hero-ornament {
+    position: relative;
+    z-index: 2
+}
+
+.wedding-wild-flowers .hero-copy,.wedding-wild-flowers .hero-meta {
+    width: 100%;
+    box-sizing: border-box;
+    padding-inline:clamp(10px,3vw,18px)}
+
+.wedding-wild-flowers .hero-card-intro {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    z-index: 1
+}
+
+.wedding-wild-flowers .hero-copy,.wedding-wild-flowers .hero-meta,.wedding-wild-flowers .hero-ornament {
+    opacity: 1;
+    transform: none;
+    transition: none
+}
+
+.wedding-wild-flowers .hero-intro-ready .hero-flap-top-wrap {
+    animation: wild-flapTopOpen 1.9s linear forwards
+}
+
+.wedding-wild-flowers .hero-intro-ready .hero-flap-bottom-wrap {
+    animation: wild-flapBottomOpen 1.9s linear forwards
+}
+
+.wedding-wild-flowers .hero-intro-ready .hero-envelope-body {
+    animation: wild-envelopeBodyReveal 2.35s linear forwards
+}
+
+@keyframes wild-flapTopOpen {
+    0% {
+        transform: translateY(0);
+        opacity: 1
+    }
+
+    to {
+        transform: translateY(-112%);
+        opacity: 0
+    }
+}
+
+@keyframes wild-flapBottomOpen {
+    0% {
+        transform: translateY(0);
+        opacity: 1
+    }
+
+    to {
+        transform: translateY(112%);
+        opacity: 0
+    }
+}
+
+@keyframes wild-envelopeBodyReveal {
+    0% {
+        opacity: .96
+    }
+
+    to {
+        opacity: 0
+    }
+}
+
+.wedding-wild-flowers .footer-names,.wedding-wild-flowers .hero-location,.wedding-wild-flowers .hero-names {
+    white-space: pre-line
+}
+
+.wedding-wild-flowers .hero-names {
+    --hero-names-base-size: 48px;
+    font-family: Cormorant SC,serif;
+    font-size: var(--hero-names-size,var(--hero-names-base-size));
+    font-weight: 500;
+    letter-spacing: -1px;
+    color: #3a3a2a;
+    line-height: 1.25;
+    text-transform: uppercase;
+    width: 100%;
+    max-width: 100%;
+    overflow: hidden;
+    text-align: center
+}
+
+.wedding-wild-flowers .hero-name-line {
+    display: block;
+    width: 100%
+}
+
+.wedding-wild-flowers .hero-names .and {
+    font-family: Cormorant Garamond,serif;
+    font-size: calc(var(--hero-names-size, var(--hero-names-base-size)) * .75);
+    font-weight: 400;
+    font-style: italic;
+    letter-spacing: 1px;
+    display: block;
+    margin: 2px 0;
+    text-transform: none
+}
+
+.wedding-wild-flowers .hero-date {
+    font-size: 20px;
+    letter-spacing: 3px;
+    margin-top: 36px;
+    color: #5a5740;
+    line-height: 1.5
+}
+
+.wedding-wild-flowers .hero-date,.wedding-wild-flowers .hero-location {
+    font-family: Cormorant SC,serif;
+    font-weight: 600;
+    text-transform: uppercase
+}
+
+.wedding-wild-flowers .hero-location {
+    font-size: 17px;
+    letter-spacing: 2.5px;
+    margin-top: 20px;
+    color: #7a7660;
+    line-height: 1.7;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: normal
+}
+
+.wedding-wild-flowers .marquee {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    overflow: hidden;
+    padding: 14px 0;
+    border-top: 2px solid #d4cfc3;
+    border-bottom: 2px solid #d4cfc3;
+    background: #f5f2ed
+}
+
+.wedding-wild-flowers .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: wild-marquee 24s linear infinite
+}
+
+.wedding-wild-flowers .marquee-text {
+    font-family: Cormorant SC,serif;
+    font-size: 13px;
+    letter-spacing: 5px;
+    color: #8a8570;
+    white-space: nowrap;
+    padding: 0 30px;
+    font-weight: 500
+}
+
+@keyframes wild-marquee {
+    0% {
+        transform: translateX(0)
+    }
+
+    to {
+        transform: translateX(-50%)
+    }
+}
+
+.wedding-wild-flowers .dear-section {
+    padding: 60px 24px 0;
+    text-align: center;
+    overflow: hidden;
+    position: relative
+}
+
+.wedding-wild-flowers .soft-divider {
+    width: min(100%,340px);
+    margin: 60px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    opacity: .82
+}
+
+.wedding-wild-flowers .soft-divider-line {
+    flex: 1;
+    max-width: 112px;
+    height: 1px;
+    background: linear-gradient(90deg,rgba(184,169,126,0),rgba(184,169,126,.7) 50%,rgba(184,169,126,0))
+}
+
+.wedding-wild-flowers .soft-divider-icon {
+    width: 72px;
+    height: auto;
+    opacity: .58;
+    transform: translate(6px,-1px)
+}
+
+.wedding-wild-flowers .soft-divider+.calendar-section,.wedding-wild-flowers .soft-divider+.footer {
+    padding-top: 0
+}
+
+.wedding-wild-flowers .dear-title-row {
+    width: min(100%,320px);
+    margin: 0 auto;
+    padding: 6px 18px 0;
+    position: relative;
+    overflow: visible
+}
+
+.wedding-wild-flowers .dear-title {
+    font-family: Cormorant SC,serif;
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #3a3a2a;
+    line-height: 1.3;
+    padding: 0 8px;
+    position: relative;
+    z-index: 1
+}
+
+.wedding-wild-flowers .and-word,.wedding-wild-flowers .dear-title-line {
+    display: block
+}
+
+.wedding-wild-flowers .dear-title-line {
+    text-transform: uppercase
+}
+
+.wedding-wild-flowers .and-word {
+    font-family: Cormorant Garamond,serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: 20px;
+    letter-spacing: 1px
+}
+
+.wedding-wild-flowers .calendar-info,.wedding-wild-flowers .dear-text,.wedding-wild-flowers .footer-text,.wedding-wild-flowers .org-title,.wedding-wild-flowers .rsvp-title {
+    white-space: pre-line
+}
+
+.wedding-wild-flowers .dear-text {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.65;
+    color: #4a4a3a;
+    max-width: 340px;
+    margin: 28px auto 0
+}
+
+.wedding-wild-flowers .dear-text p,.wedding-wild-flowers .org-text p {
+    margin: 0 0 18px
+}
+
+.wedding-wild-flowers .dear-text p:last-child,.wedding-wild-flowers .org-text p:last-child {
+    margin-bottom: 0
+}
+
+.wedding-wild-flowers .org-text a {
+    color: #fff8e8;
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 4px;
+    transition: color .2s ease
+}
+
+.wedding-wild-flowers .org-text a:hover {
+    color: #ffffff
+}
+
+.wedding-wild-flowers .photo-frame {
+    width: 100%;
+    max-width: 480px;
+    margin: 36px auto 0;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+    background: linear-gradient(135deg,#e8dcc8,#d4c9a8)
+}
+
+.wedding-wild-flowers .content-photo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover
+}
+
+.wedding-wild-flowers .calendar-section {
+    padding: 70px 24px 172px;
+    text-align: center;
+    position: relative
+}
+
+.wedding-wild-flowers .calendar-section--compact {
+    padding-bottom: 56px
+}
+
+@media (min-width: 1024px) {
+    .wedding-wild-flowers .calendar-section--compact {
+        padding-bottom:64px
+    }
+}
+
+.wedding-wild-flowers .section-title {
+    font-family: Cormorant SC,serif;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: #3a3a2a;
+    margin: 0 0 36px;
+    text-transform: uppercase;
+    line-height: 1.3
+}
+
+.wedding-wild-flowers .calendar {
+    max-width: 320px;
+    margin: 0 auto
+}
+
+.wedding-wild-flowers .calendar-month {
+    font-family: Cormorant SC,serif;
+    font-size: 16px;
+    letter-spacing: 4px;
+    color: #5a5740;
+    margin-bottom: 18px;
+    font-weight: 500
+}
+
+.wedding-wild-flowers .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7,1fr);
+    gap: 2px
+}
+
+.wedding-wild-flowers .calendar-grid .day-header {
+    font-family: Cormorant SC,serif;
+    font-size: 13px;
+    letter-spacing: 1px;
+    color: #8a8570;
+    padding: 8px 0;
+    font-weight: 500
+}
+
+.wedding-wild-flowers .calendar-grid .day {
+    font-size: 16px;
+    padding: 7px 0;
+    color: #5a5740
+}
+
+.wedding-wild-flowers .calendar-grid .day.other-month {
+    color: #c5c0b5
+}
+
+.wedding-wild-flowers .calendar-grid .day.highlight {
+    background: #e8c9c0;
+    border-radius: 50%;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    font-weight: 600;
+    color: #3a3a2a
+}
+
+.wedding-wild-flowers .calendar-info {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4a4a3a;
+    margin: 36px auto 0;
+    max-width: 320px
+}
+
+.wedding-wild-flowers .floral-strip {
+    width: min(100%,480px);
+    margin-inline:auto;display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: visible;
+    pointer-events: none;
+    padding-inline:10px;z-index: 2
+}
+
+.wedding-wild-flowers .floral-strip img {
+    position: absolute;
+    width: auto;
+    transform-origin: center bottom
+}
+
+.wedding-wild-flowers .calendar-bottom-flowers {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    z-index: 1
+}
+
+.wedding-wild-flowers .calendar-bottom-flowers img {
+    height: 200px;
+    top: -185px;
+    left: -45px;
+    transform: scaleX(1) rotate(16deg)
+}
+
+.wedding-wild-flowers .timing-bottom-flowers {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 4px;
+    z-index: 1
+}
+
+.wedding-wild-flowers .timing-bottom-flowers img {
+    height: 240px;
+    top: -200px;
+    right: -50px;
+    transform: rotate(-18deg)
+}
+
+.wedding-wild-flowers .map-section {
+    padding: 16px 24px 184px;
+    text-align: center;
+    position: relative;
+    z-index: 2
+}
+
+.wedding-wild-flowers .map-section--no-flower {
+    padding-bottom: 56px
+}
+
+.wedding-wild-flowers .map-section .section-title {
+    font-family: Cormorant SC,serif;
+    font-size: 16px;
+    letter-spacing: 4px;
+    color: #5a5740;
+    font-weight: 500;
+    margin-bottom: 24px
+}
+
+.wedding-wild-flowers .map-card-wrap {
+    max-width: 520px;
+    margin: 0 auto
+}
+
+.wedding-wild-flowers .map-card {
+    overflow: hidden;
+    box-shadow: 0 2px 12px rgba(120,105,69,.12)
+}
+
+.wedding-wild-flowers .map-card-frame {
+    aspect-ratio: 4/3;
+    width: 100%
+}
+
+.wedding-wild-flowers .map-card-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0
+}
+
+.wedding-wild-flowers .map-card-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8e3d4;
+    color: #a09a85;
+    font-family: Cormorant SC,serif;
+    font-size: 18px;
+    letter-spacing: 2px
+}
+
+.wedding-wild-flowers .map-card-open {
+    display: block;
+    text-align: right;
+    margin-top: 10px;
+    font-family: Cormorant SC,serif;
+    font-size: 13px;
+    letter-spacing: 2px;
+    color: #8a8570;
+    text-decoration: none;
+    border-bottom: none;
+    transition: color .2s;
+    text-transform: uppercase
+}
+
+.wedding-wild-flowers .map-card-open:hover {
+    color: #5a5647
+}
+
+.wedding-wild-flowers .map-section .calendar-bottom-flowers {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -1px;
+    z-index: 3
+}
+
+.wedding-wild-flowers .map-section .calendar-bottom-flowers img {
+    height: 200px;
+    top: -185px;
+    left: -45px;
+    transform: scaleX(1) rotate(16deg)
+}
+
+@media (max-width: 600px) {
+    .wedding-wild-flowers .map-section {
+        padding:12px 16px 164px
+    }
+
+    .wedding-wild-flowers .map-section--no-flower {
+        padding-bottom: 48px
+    }
+
+    .wedding-wild-flowers .map-section .section-title {
+        margin-bottom: 20px
+    }
+
+    .wedding-wild-flowers .map-card-frame {
+        aspect-ratio: 3/2
+    }
+
+    .wedding-wild-flowers .map-card-open {
+        margin-top: 10px;
+        font-size: 12px
+    }
+}
+
+@media (min-width: 1024px) {
+    .wedding-wild-flowers .map-section {
+        width:min(980px,calc(100vw - 72px));
+        margin-inline:auto;padding-left: 72px;
+        padding-right: 72px;
+        padding-bottom: 208px
+    }
+
+    .wedding-wild-flowers .map-section--no-flower {
+        padding-bottom: 64px
+    }
+
+    .wedding-wild-flowers .map-section .section-title {
+        font-size: 18px;
+        letter-spacing: 4.5px
+    }
+
+    .wedding-wild-flowers .map-card-wrap {
+        max-width: 720px
+    }
+
+    .wedding-wild-flowers .map-section .calendar-bottom-flowers img {
+        height: 250px;
+        top: -220px;
+        left: -64px
+    }
+}
+
+.wedding-wild-flowers .dresscode-section {
+    background: #5a5647;
+    color: #f0ece4;
+    padding: 56px 24px 72px;
+    text-align: center;
+    position: relative;
+    z-index: 2
+}
+
+.wedding-wild-flowers .dresscode-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 4px
+}
+
+.wedding-wild-flowers .dresscode-header span {
+    font-family: Cormorant SC,serif;
+    font-size: 28px;
+    font-weight: 600;
+    letter-spacing: 3px
+}
+
+.wedding-wild-flowers .dresscode-line {
+    width: 100px;
+    height: 1px;
+    background: #8a8570;
+    margin: 6px auto 28px
+}
+
+.wedding-wild-flowers .dresscode-text {
+    font-size: 17px;
+    line-height: 1.6;
+    max-width: 340px;
+    margin: 0 auto 28px;
+    color: #ddd8cc
+}
+
+.wedding-wild-flowers .color-swatches {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 0;
+    flex-wrap: wrap
+}
+
+.wedding-wild-flowers .swatch {
+    width: 50px;
+    height: 50px;
+    border-radius: 3px
+}
+
+.wedding-wild-flowers .timing-section {
+    padding: 60px 24px 168px;
+    text-align: center;
+    background: #f5f2ed;
+    position: relative
+}
+
+.wedding-wild-flowers .timing-list {
+    max-width: 320px;
+    margin: 0 auto
+}
+
+.wedding-wild-flowers .timing-item {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding: 20px 0;
+    border-bottom: 1px solid #d4cfc3
+}
+
+.wedding-wild-flowers .timing-item:last-child {
+    border-bottom: none
+}
+
+.wedding-wild-flowers .timing-time {
+    font-size: 22px;
+    color: #5a5740;
+    min-width: 60px;
+    text-align: right
+}
+
+.wedding-wild-flowers .timing-dash {
+    color: #b8a97e;
+    font-size: 18px
+}
+
+.wedding-wild-flowers .timing-event {
+    font-family: Cormorant SC,serif;
+    font-size: 19px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #3a3a2a;
+    text-align: left;
+    line-height: 1.4;
+    text-transform: uppercase
+}
+
+.wedding-wild-flowers .org-section {
+    background: #5a5647;
+    color: #f0ece4;
+    padding: 60px 24px;
+    text-align: center;
+    position: relative;
+    z-index: 2
+}
+
+.wedding-wild-flowers .org-title {
+    font-family: Cormorant SC,serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1.3;
+    margin-bottom: 28px;
+    text-transform: uppercase
+}
+
+.wedding-wild-flowers .org-text {
+    font-size: 17px;
+    line-height: 1.7;
+    max-width: 340px;
+    margin: 0 auto;
+    color: #ddd8cc
+}
+
+.wedding-wild-flowers .org-photo-frame {
+    margin-top: 30px
+}
+
+.wedding-wild-flowers .footer-photo-frame {
+    margin-top: 0;
+    margin-bottom: 34px
+}
+
+.wedding-wild-flowers .dresscode-section .dress-code-photo-frame {
+    aspect-ratio: auto;
+    width: min(100%,480px);
+    max-width: 480px;
+    margin-top: 44px;
+    margin-bottom: 0
+}
+
+.wedding-wild-flowers .dresscode-section .dress-code-photo-frame .content-photo {
+    height: auto;
+    object-fit: contain
+}
+
+.wedding-wild-flowers .rsvp-section {
+    padding: 70px 24px 0;
+    text-align: center;
+    background: #f5f2ed
+}
+
+.wedding-wild-flowers .rsvp-eyebrow {
+    font-family: Cormorant SC,serif;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #8a8570;
+    text-transform: uppercase;
+    margin-bottom: 12px
+}
+
+.wedding-wild-flowers .rsvp-title {
+    font-family: Cormorant SC,serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    line-height: 1.35;
+    color: #3a3a2a;
+    margin-bottom: 36px;
+    text-transform: uppercase
+}
+
+.wedding-wild-flowers .rsvp-description {
+    max-width: 720px;
+    margin: -6px auto 28px;
+    text-align: left;
+    font-size: 15px;
+    line-height: 1.9;
+    color: #7d6f66;
+    white-space: pre-line
+}
+
+.wedding-wild-flowers .rsvp-form {
+    max-width: 340px;
+    margin: 0 auto;
+    text-align: left
+}
+
+.wedding-wild-flowers .rsvp-reveal .form-group,.wedding-wild-flowers .rsvp-reveal .submit-btn {
+    opacity: 0;
+    transform: translateY(18px)
+}
+
+.wedding-wild-flowers .rsvp-reveal.visible .form-group,.wedding-wild-flowers .rsvp-reveal.visible .submit-btn {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity .75s ease,transform .85s ease
+}
+
+.wedding-wild-flowers .rsvp-reveal.visible .form-group:first-child {
+    transition-delay: .05s
+}
+
+.wedding-wild-flowers .rsvp-reveal.visible .form-group:nth-child(2) {
+    transition-delay: .12s
+}
+
+.wedding-wild-flowers .rsvp-reveal.visible .form-group:nth-child(3) {
+    transition-delay: .19s
+}
+
+.wedding-wild-flowers .rsvp-reveal.visible .form-group:nth-child(4) {
+    transition-delay: .26s
+}
+
+.wedding-wild-flowers .rsvp-reveal.visible .form-group:nth-child(5) {
+    transition-delay: .33s
+}
+
+.wedding-wild-flowers .rsvp-reveal.visible .submit-btn {
+    transition-delay: .4s
+}
+
+.wedding-wild-flowers .form-group {
+    margin-bottom: 28px
+}
+
+.wedding-wild-flowers .rsvp-form>.form-group>label {
+    font-size: 17px;
+    font-weight: 500;
+    color: #3a3a2a;
+    display: block;
+    margin-bottom: 10px
+}
+
+.wedding-wild-flowers .form-hint {
+    font-size: 14px;
+    color: #8a8570;
+    font-style: italic;
+    display: block;
+    margin-top: 8px
+}
+
+.wedding-wild-flowers .rsvp-form input[type=text],.wedding-wild-flowers .rsvp-form textarea {
+    width: 100%;
+    padding: 12px 14px;
+    font-family: Cormorant Garamond,serif;
+    font-size: 16px;
+    border: 1.5px solid #c5c0b5;
+    border-radius: 3px;
+    background: #fff;
+    color: #3a3a2a;
+    outline: none;
+    transition: border-color .3s
+}
+
+.wedding-wild-flowers .rsvp-form textarea {
+    resize: vertical;
+    min-height: 70px
+}
+
+.wedding-wild-flowers .rsvp-form input[type=text]::placeholder,.wedding-wild-flowers .rsvp-form textarea::placeholder {
+    color: #b5b0a5;
+    font-style: italic
+}
+
+.wedding-wild-flowers .rsvp-form input[type=text]:focus,.wedding-wild-flowers .rsvp-form textarea:focus {
+    border-color: #8a8570
+}
+
+.wedding-wild-flowers .check-list,.wedding-wild-flowers .radio-group--col {
+    display: flex;
+    flex-direction: column;
+    gap: 10px
+}
+
+.wedding-wild-flowers .check-item,.wedding-wild-flowers .radio-option {
+    font-size: 16px;
+    color: #4a4a3a;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer
+}
+
+.wedding-wild-flowers .check-item input,.wedding-wild-flowers .radio-option input {
+    width: 18px;
+    height: 18px;
+    accent-color: #5a5647;
+    cursor: pointer;
+    flex-shrink: 0;
+    margin: 0
+}
+
+.wedding-wild-flowers .radio-option label {
+    font: inherit;
+    color: inherit;
+    cursor: pointer
+}
+
+.wedding-wild-flowers .checkmark {
+    display: none
+}
+
+.wedding-wild-flowers .submit-btn {
+    display: block;
+    width: 180px;
+    margin: 36px auto 0;
+    padding: 13px 32px;
+    font-family: Cormorant SC,serif;
+    font-size: 16px;
+    letter-spacing: 2px;
+    font-weight: 600;
+    background: #5a5647;
+    color: #f0ece4;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background .3s
+}
+
+.wedding-wild-flowers .submit-btn:hover {
+    background: #4a4637
+}
+
+.wedding-wild-flowers .submit-btn:disabled {
+    opacity: .6;
+    cursor: default
+}
+
+.wedding-wild-flowers .success-title {
+    font-family: Cormorant SC,serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #3a3a2a;
+    text-transform: uppercase;
+    margin: 0 0 12px
+}
+
+.wedding-wild-flowers .success-subtitle {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #4a4a3a;
+    margin: 0
+}
+
+.wedding-wild-flowers .footer {
+    padding: 60px 24px 32px;
+    text-align: center;
+    background: #f5f2ed;
+    overflow: hidden;
+    position: relative;
+    z-index: 2
+}
+
+.wedding-wild-flowers .footer-text {
+    font-family: Cormorant SC,serif;
+    font-size: 26px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #3a3a2a;
+    line-height: 1.4;
+    text-transform: uppercase
+}
+
+.wedding-wild-flowers .footer-names {
+    font-family: Cormorant SC,serif;
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: 3px;
+    color: #7a7660;
+    margin-top: 8px;
+    text-transform: uppercase
+}
+
+.wedding-wild-flowers .footer-bottom-image {
+    margin-top: -90px;
+    position: relative;
+    z-index: 100
+}
+
+.wedding-wild-flowers .footer-bottom-image img {
+    display: block;
+    width: 100%;
+    height: auto
+}
+
+.wedding-wild-flowers .wild-flowers-badge {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 24px 0;
+    background: #f5f2ed;
+    border-top: 1px solid rgba(122,118,96,.22)
+}
+
+.wedding-wild-flowers .wild-flowers-badge a {
+    font-size: 16px;
+    color: #7a7660;
+    text-decoration: none;
+    transition: color .3s
+}
+
+.wedding-wild-flowers .wild-flowers-badge a:hover {
+    color: #5f5b49
+}
+
+@media (min-width: 768px) {
+    .wedding-wild-flowers .footer {
+        padding-bottom:38px
+    }
+
+    .wedding-wild-flowers .footer-bottom-image {
+        margin-top: -88px
+    }
+
+    .wedding-wild-flowers .footer-bottom-image img {
+        width: min(100%,500px);
+        margin: 0 auto
+    }
+
+    .wedding-wild-flowers .wild-flowers-badge {
+        padding: 24px 0;
+        background: transparent
+    }
+}
+
+.wedding-wild-flowers .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .7s ease,transform .7s ease
+}
+
+.wedding-wild-flowers .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0)
+}
+
+@media (min-width: 768px) {
+    .wedding-wild-flowers .hero-intro-scene {
+        width:430px
+    }
+
+    .wedding-wild-flowers .hero-card {
+        width: 400px;
+        padding: 50px 36px 24px
+    }
+
+    .wedding-wild-flowers .hero-names {
+        --hero-names-base-size: 54px
+    }
+
+    .wedding-wild-flowers .dear-title {
+        font-size: 38px
+    }
+
+    .wedding-wild-flowers .dear-title-row {
+        width: 360px;
+        padding-right: 34px
+    }
+
+    .wedding-wild-flowers .section-title {
+        font-size: 36px
+    }
+
+    .wedding-wild-flowers .timing-event {
+        font-size: 22px
+    }
+
+    .wedding-wild-flowers .timing-time {
+        font-size: 26px
+    }
+
+    .wedding-wild-flowers .calendar-bottom-flowers {
+        bottom: -26px
+    }
+
+    .wedding-wild-flowers .calendar-micro-divider {
+        bottom: 50px
+    }
+
+    .wedding-wild-flowers .timing-bottom-flowers {
+        bottom: -28px
+    }
+}
+
+@media (min-width: 768px) and (max-width:1023px) {
+    .wedding-wild-flowers .calendar-bottom-flowers {
+        bottom:-10px
+    }
+
+    .wedding-wild-flowers .calendar-bottom-flowers img {
+        height: 225px;
+        top: -205px;
+        left: -54px
+    }
+}
+
+@media (min-width: 1024px) {
+    .wedding-wild-flowers {
+        background:#f5f2ed
+    }
+
+    .wedding-wild-flowers .calendar-bottom-flowers {
+        bottom: 20px
+    }
+
+    .wedding-wild-flowers .calendar-bottom-flowers img {
+        top: -228px
+    }
+
+    .wedding-wild-flowers .hero {
+        min-height: 980px
+    }
+
+    .wedding-wild-flowers .hero-layout {
+        padding: 76px 36px 126px
+    }
+
+    .wedding-wild-flowers .hero-intro-scene {
+        width: min(620px,72vw);
+        height: min(82svh,820px)
+    }
+
+    .wedding-wild-flowers .hero-card {
+        width: 520px;
+        max-width: none;
+        height: min(74svh,670px);
+        padding: 66px 44px 34px;
+        box-shadow: 0 34px 78px rgba(101,83,49,.16)
+    }
+
+    .wedding-wild-flowers .hero-card:before {
+        top: 26px;
+        right: 26px;
+        bottom: 26px;
+        left: 26px
+    }
+
+    .wedding-wild-flowers .ornament {
+        width: 240px;
+        margin-bottom: 30px
+    }
+
+    .wedding-wild-flowers .hero-names {
+        --hero-names-base-size: 66px;
+        line-height: 1.12
+    }
+
+    .wedding-wild-flowers .hero-names .and {
+        margin: 4px 0 2px
+    }
+
+    .wedding-wild-flowers .hero-date {
+        font-size: 24px;
+        letter-spacing: 3.6px;
+        margin-top: 42px
+    }
+
+    .wedding-wild-flowers .hero-location {
+        font-size: 18px;
+        letter-spacing: 3px;
+        margin-top: 18px;
+        max-width: 420px
+    }
+
+    .wedding-wild-flowers .marquee {
+        padding: 16px 0
+    }
+
+    .wedding-wild-flowers .marquee-text {
+        font-size: 14px;
+        letter-spacing: 5.5px;
+        padding: 0 34px
+    }
+
+    .wedding-wild-flowers .calendar-section,.wedding-wild-flowers .dear-section,.wedding-wild-flowers .footer,.wedding-wild-flowers .rsvp-section,.wedding-wild-flowers .timing-section {
+        width: min(980px,calc(100vw - 72px));
+        margin-inline:auto;padding-left: 72px;
+        padding-right: 72px;
+        border-left: none;
+        border-right: none;
+        box-shadow: none
+    }
+
+    .wedding-wild-flowers .dear-section {
+        margin-top: 44px;
+        padding-top: 86px;
+        background: transparent;
+        border-top: none;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0
+    }
+
+    .wedding-wild-flowers .calendar-section,.wedding-wild-flowers .footer,.wedding-wild-flowers .rsvp-section,.wedding-wild-flowers .timing-section {
+        background: transparent
+    }
+
+    .wedding-wild-flowers .dresscode-section,.wedding-wild-flowers .org-section {
+        margin-inline:auto;padding-left: 72px;
+        padding-right: 72px;
+        box-shadow: none
+    }
+
+    .wedding-wild-flowers .footer,.wedding-wild-flowers .rsvp-section {
+        border-bottom: none
+    }
+
+    .wedding-wild-flowers .footer {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        padding-bottom: 44px
+    }
+
+    .wedding-wild-flowers .soft-divider {
+        width: min(100%,460px);
+        margin: 74px auto;
+        gap: 18px
+    }
+
+    .wedding-wild-flowers .soft-divider-line {
+        max-width: 160px
+    }
+
+    .wedding-wild-flowers .soft-divider-icon {
+        width: 84px
+    }
+
+    .wedding-wild-flowers .dear-title-row {
+        width: 430px;
+        padding-right: 44px
+    }
+
+    .wedding-wild-flowers .dear-title {
+        font-size: 44px;
+        letter-spacing: 2.4px
+    }
+
+    .wedding-wild-flowers .and-word {
+        font-size: 24px
+    }
+
+    .wedding-wild-flowers .calendar-info,.wedding-wild-flowers .dear-text,.wedding-wild-flowers .org-text {
+        max-width: 560px;
+        font-size: 21px;
+        line-height: 1.72
+    }
+
+    .wedding-wild-flowers .photo-frame {
+        max-width: 680px;
+        margin-top: 42px;
+        box-shadow: 0 24px 56px rgba(108,90,54,.14)
+    }
+
+    .wedding-wild-flowers .dresscode-section .dress-code-photo-frame {
+        width: fit-content;
+        max-width: min(100%,680px);
+        display: flex;
+        justify-content: center;
+        margin-inline:auto;margin-top: 56px
+    }
+
+    .wedding-wild-flowers .dresscode-section .dress-code-photo-frame .content-photo {
+        max-height: 70vh;
+        width: auto;
+        max-width: 100%
+    }
+
+    .wedding-wild-flowers .section-title {
+        font-size: 42px;
+        letter-spacing: 3.6px;
+        margin-bottom: 42px
+    }
+
+    .wedding-wild-flowers .calendar {
+        max-width: 420px
+    }
+
+    .wedding-wild-flowers .calendar-month {
+        font-size: 18px;
+        margin-bottom: 22px
+    }
+
+    .wedding-wild-flowers .calendar-grid .day {
+        font-size: 18px;
+        padding: 9px 0
+    }
+
+    .wedding-wild-flowers .calendar-grid .day.highlight {
+        width: 44px;
+        height: 44px
+    }
+
+    .wedding-wild-flowers .calendar-info {
+        margin-top: 40px
+    }
+
+    .wedding-wild-flowers .floral-strip {
+        width: min(100%,700px)
+    }
+
+    .wedding-wild-flowers .calendar-bottom-flowers {
+        bottom: -6px
+    }
+
+    .wedding-wild-flowers .calendar-bottom-flowers img {
+        height: 250px;
+        left: -64px
+    }
+
+    .wedding-wild-flowers .dresscode-section {
+        padding-top: 72px;
+        padding-bottom: 92px;
+        border-radius: 0
+    }
+
+    .wedding-wild-flowers .dresscode-header span {
+        font-size: 34px
+    }
+
+    .wedding-wild-flowers .dresscode-text {
+        max-width: 560px;
+        font-size: 20px;
+        margin-bottom: 34px
+    }
+
+    .wedding-wild-flowers .swatch {
+        width: 58px;
+        height: 58px
+    }
+
+    .wedding-wild-flowers .timing-section {
+        padding-top: 84px;
+        padding-bottom: 184px
+    }
+
+    .wedding-wild-flowers .timing-list {
+        max-width: 560px
+    }
+
+    .wedding-wild-flowers .timing-item {
+        gap: 20px;
+        padding: 22px 0
+    }
+
+    .wedding-wild-flowers .timing-time {
+        min-width: 86px;
+        font-size: 28px
+    }
+
+    .wedding-wild-flowers .timing-dash {
+        font-size: 22px
+    }
+
+    .wedding-wild-flowers .timing-event {
+        font-size: 24px;
+        letter-spacing: 2.2px
+    }
+
+    .wedding-wild-flowers .timing-bottom-flowers {
+        bottom: -4px
+    }
+
+    .wedding-wild-flowers .timing-bottom-flowers img {
+        height: 280px;
+        right: -12px
+    }
+
+    .wedding-wild-flowers .org-section {
+        padding-top: 76px;
+        padding-bottom: 76px
+    }
+
+    .wedding-wild-flowers .org-title {
+        font-size: 34px;
+        margin-bottom: 32px
+    }
+
+    .wedding-wild-flowers .rsvp-section {
+        padding-top: 84px
+    }
+
+    .wedding-wild-flowers .rsvp-title {
+        font-size: 34px;
+        margin-bottom: 42px
+    }
+
+    .wedding-wild-flowers .rsvp-form {
+        max-width: 560px
+    }
+
+    .wedding-wild-flowers .footer-text {
+        font-size: 32px;
+        letter-spacing: 2.5px
+    }
+
+    .wedding-wild-flowers .footer-names {
+        font-size: 18px;
+        letter-spacing: 3.4px;
+        margin-top: 12px
+    }
+
+    .wedding-wild-flowers .footer-bottom-image {
+        margin-top: -118px
+    }
+
+    .wedding-wild-flowers .footer-bottom-image img {
+        width: min(100%,720px);
+        margin: 0 auto
+    }
+}
+
+@media (max-width: 380px) {
+    .wedding-wild-flowers .hero-intro-scene {
+        width:min(330px,88vw)
+    }
+
+    .wedding-wild-flowers .hero-flap-top-wrap {
+        height: 40%
+    }
+
+    .wedding-wild-flowers .hero-curtain--top {
+        clip-path: polygon(0 0,100% 0,100% 62%,50% 100%,0 62%)
+    }
+
+    .wedding-wild-flowers .hero-flap-bottom-wrap {
+        height: 48%
+    }
+
+    .wedding-wild-flowers .hero-curtain--bottom {
+        clip-path: polygon(0 100%,100% 100%,100% 38%,50% 0,0 38%)
+    }
+
+    .wedding-wild-flowers .hero-card {
+        width: 290px;
+        padding: 36px 20px 16px
+    }
+
+    .wedding-wild-flowers .hero-seal {
+        width: 113px;
+        height: 113px;
+        bottom: -49px
+    }
+
+    .wedding-wild-flowers .hero-names {
+        --hero-names-base-size: 38px
+    }
+
+    .wedding-wild-flowers .dear-title-row {
+        width: 290px;
+        padding-right: 24px
+    }
+
+    .wedding-wild-flowers .dear-title {
+        font-size: 28px
+    }
+
+    .wedding-wild-flowers .calendar-bottom-flowers {
+        bottom: -18px
+    }
+
+    .wedding-wild-flowers .timing-bottom-flowers {
+        bottom: -20px
+    }
+}
+
+@media (max-width: 430px) and (max-height:760px) {
+    .wedding-wild-flowers .hero-layout {
+        padding:28px 0 88px
+    }
+
+    .wedding-wild-flowers .hero-intro-scene {
+        width: min(330px,86vw);
+        height: min(68svh,560px)
+    }
+
+    .wedding-wild-flowers .hero-flap-top-wrap {
+        height: 40%
+    }
+
+    .wedding-wild-flowers .hero-curtain--top {
+        clip-path: polygon(0 0,100% 0,100% 62%,50% 100%,0 62%)
+    }
+
+    .wedding-wild-flowers .hero-flap-bottom-wrap {
+        height: 48%
+    }
+
+    .wedding-wild-flowers .hero-curtain--bottom {
+        clip-path: polygon(0 100%,100% 100%,100% 38%,50% 0,0 38%)
+    }
+
+    .wedding-wild-flowers .hero-card {
+        width: min(320px,75vw);
+        height: min(62svh,calc(100svh - 170px));
+        padding: 28px 22px 24px
+    }
+
+    .wedding-wild-flowers .hero-card:before {
+        top: 16px;
+        right: 16px;
+        bottom: 16px;
+        left: 16px
+    }
+
+    .wedding-wild-flowers .hero-seal {
+        width: 106px;
+        height: 106px;
+        bottom: -46px
+    }
+
+    .wedding-wild-flowers .ornament {
+        width: 200px;
+        margin-bottom: 18px
+    }
+
+    .wedding-wild-flowers .hero-names {
+        --hero-names-base-size: 44px;
+        line-height: 1.12
+    }
+
+    .wedding-wild-flowers .hero-names .and {
+        margin: 0;
+        padding-bottom: 4px
+    }
+
+    .wedding-wild-flowers .hero-date {
+        font-size: 15px;
+        letter-spacing: 2.2px;
+        margin-top: 20px;
+        line-height: 1.35
+    }
+
+    .wedding-wild-flowers .hero-location {
+        font-size: 14px;
+        letter-spacing: 1.9px;
+        margin-top: 14px;
+        line-height: 1.45
+    }
+
+    .wedding-wild-flowers .marquee {
+        padding: 12px 0
+    }
+
+    .wedding-wild-flowers .marquee-text {
+        font-size: 11px;
+        letter-spacing: 4px;
+        padding: 0 24px
+    }
+}
+
+@media (prefers-reduced-motion:reduce) {
+    .wedding-wild-flowers .pollen {
+        animation: none;
+        opacity: .16
+    }
+
+    .wedding-wild-flowers .fade-in,.wedding-wild-flowers .hero-card-intro,.wedding-wild-flowers .hero-copy,.wedding-wild-flowers .hero-envelope-body,.wedding-wild-flowers .hero-flap-bottom-wrap,.wedding-wild-flowers .hero-flap-top-wrap,.wedding-wild-flowers .hero-meta,.wedding-wild-flowers .hero-ornament,.wedding-wild-flowers .marquee-track,.wedding-wild-flowers .rsvp-reveal .form-group,.wedding-wild-flowers .rsvp-reveal .submit-btn {
+        animation: none!important;
+        transition: none!important
+    }
+
+    .wedding-wild-flowers .fade-in,.wedding-wild-flowers .hero-card-intro,.wedding-wild-flowers .hero-copy,.wedding-wild-flowers .hero-meta,.wedding-wild-flowers .hero-ornament,.wedding-wild-flowers .rsvp-reveal .form-group,.wedding-wild-flowers .rsvp-reveal .submit-btn {
+        opacity: 1;
+        transform: none;
+        filter: none
+    }
+
+    .wedding-wild-flowers .hero-envelope-body,.wedding-wild-flowers .hero-flap-bottom-wrap,.wedding-wild-flowers .hero-flap-top-wrap {
+        opacity: 0
+    }
+}
+
+@media (orientation: landscape) and (max-height:600px) and (max-width:1024px) {
+    .wedding-wild-flowers .hero {
+        height:auto;
+        min-height: max(100svh,390px)
+    }
+
+    .wedding-wild-flowers .hero-layout {
+        padding: 22px 0 64px
+    }
+
+    .wedding-wild-flowers .hero-intro-scene {
+        width: min(520px,72vw);
+        height: min(315px,calc(100svh - 76px))
+    }
+
+    .wedding-wild-flowers .hero-card {
+        width: min(440px,72vw);
+        height: min(292px,calc(100svh - 96px));
+        padding: 22px 28px 16px
+    }
+
+    .wedding-wild-flowers .hero-card:before {
+        top: 14px;
+        right: 14px;
+        bottom: 14px;
+        left: 14px
+    }
+
+    .wedding-wild-flowers .ornament {
+        width: 150px;
+        margin-bottom: 12px
+    }
+
+    .wedding-wild-flowers .hero-names {
+        --hero-names-base-size: 34px;
+        line-height: 1.05
+    }
+
+    .wedding-wild-flowers .hero-names .and {
+        margin: 0
+    }
+
+    .wedding-wild-flowers .hero-date {
+        margin-top: 14px;
+        font-size: 14px;
+        letter-spacing: 2px;
+        line-height: 1.25
+    }
+
+    .wedding-wild-flowers .hero-location {
+        margin-top: 8px;
+        font-size: 12px;
+        letter-spacing: 1.6px;
+        line-height: 1.3
+    }
+
+    .wedding-wild-flowers .hero-seal {
+        width: 90px;
+        height: 90px;
+        bottom: -40px
+    }
+
+    .wedding-wild-flowers .marquee {
+        padding: 8px 0
+    }
+
+    .wedding-wild-flowers .marquee-text {
+        font-size: 10px;
+        letter-spacing: 3px;
+        padding: 0 20px
+    }
+}

@@ -339,7 +339,7 @@
             if (errorEl) errorEl.remove();
         }
 
-        // АНКЕТА - ОТПРАВКА В SUPABASE
+               // АНКЕТА - ОТПРАВКА В SUPABASE
         document.getElementById('guestForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             clearErrors();
@@ -403,7 +403,8 @@
                 });
 
                 if (response.ok) {
-                    showSuccess();
+                    showSuccess();  // <-- ЭТО ГЛАВНОЕ ИЗМЕНЕНИЕ!
+                    this.reset();
                 } else {
                     alert('❌ Ошибка при сохранении. Попробуйте ещё раз.');
                 }

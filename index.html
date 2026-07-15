@@ -179,7 +179,7 @@
                         <p class="ivory-v2-rsvp-note">Пожалуйста, подтвердите своё присутствие до <strong>15 мая 2027 года</strong>.</p>
                         <div class="ivory-v2-rsvp-form">
                             <form id="guestForm">
-                                <div class="form-group">
+                                <div class="form-group" id="attendGroup">
                                     <label>Сможете ли вы присутствовать на торжестве?</label>
                                     <div class="radio-group radio-group--col">
                                         <div class="radio-option">
@@ -255,6 +255,34 @@
 
     <style>
         .ivory-v2-template-badge { display: none !important; }
+
+        /* Ошибка полей - коричневый цвет */
+        .form-group.error label {
+            color: #8b6b4d !important;
+        }
+        .form-group.error .radio-option label {
+            border-color: #8b6b4d !important;
+            color: #8b6b4d !important;
+        }
+        .form-group.error .radio-option input:checked + label {
+            border-color: #8b6b4d !important;
+            background: rgba(139, 107, 77, 0.1) !important;
+            color: #8b6b4d !important;
+        }
+        #guestName.error-input {
+            border-color: #8b6b4d !important;
+        }
+        .error-text {
+            color: #8b6b4d;
+            text-align: center;
+            padding: 12px;
+            margin: 10px 0;
+            border: 1px solid #8b6b4d;
+            background: #fdf6f0;
+            border-radius: 4px;
+            font-family: Inter, sans-serif;
+            font-size: 14px;
+        }
     </style>
     
 

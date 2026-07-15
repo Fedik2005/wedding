@@ -263,13 +263,49 @@
         updateTimer();
         setInterval(updateTimer, 1000);
 
-        // ---- КОНФИГУРАЦИЯ SUPABASE (ВАШИ КЛЮЧИ) ----
-        const SUPABASE_URL = 'https://bbxgzrvgyxpieevrjaef.supabase.co';
-        const SUPABASE_ANON_KEY = 'sb_publishable_3Sm-s5wCvwLG8pZCxAyCWQ_JZaQeF2b';
+                // ---- КОНФИГУРАЦИЯ GITHUB ISSUES ----
+        // ЗАМЕНИТЕ НА ВАШИ ДАННЫЕ:
+        const GITHUB_USER = 'Fedik2005';
+        const GITHUB_REPO = 'wedding';
+        const GITHUB_ISSUE_NUMBER = 1;  // Номер вашего Issue
 
-        // АНКЕТА - ОТПРАВКА В БАЗУ ДАННЫХ
-        document.getElementById('guestForm').addEventListener('submit', async function(e) {
+        // ПОКАЗАТЬ СООБЩЕНИЕ ОБ УСПЕХЕ
+        function showSuccess() {
+            const form = document.querySelector('.ivory-v2-rsvp-form');
+            const success = document.getElementById('successMessage');
+            if (form) form.style.display = 'none';
+            if (success) success.classList.add('show');
+        }
+
+        // УБРАТЬ ОШИБКИ
+        function clearErrors() {
+            document.querySelectorAll('.form-group.error').forEach(el => {
+                el.classList.remove('error');
+            });
+            const nameInput = document.getElementById('guestName');
+            if (nameInput) nameInput.classList.remove('error-input');
+            const errorEl = document.getElementById('formError');
+            if (errorEl) errorEl.remove();
+        }
+
+        // ФОРМИРУЕМ КОММЕНТАРИЙ ДЛЯ ISSUE
+        function formatComment(data) {
+            return `**Новый ответ гостя** (${data.date})
+
+**Имя:** ${data.name}
+**Присутствие:** ${data.attending}
+**Еда:** ${data.food || '—'}
+**Напитки:** ${data.drinks || '—'}
+**Комментарий:** ${data.comment || '—'}
+
+---
+*Ответ отправлен через сайт приглашения*`;
+        }
+
+        // АНКЕТА - ОТПРАВКА В GITHUB ISSUES
+        document.getElementById('guestForm').addEventListener('submit', function(e) {
             e.preventDefault();
+            clearErrors();
 
             const name = document.getElementById('guestName').value.trim();
             const attend = document.querySelector('input[name="attend"]:checked');
@@ -277,44 +313,72 @@
             const drinkCheckboxes = document.querySelectorAll('#guestForm .form-group:last-of-type .check-list input[type="checkbox"]');
             const comment = document.getElementById('comment').value.trim();
 
-            if (!name || !attend) {
-                alert('Пожалуйста, заполните все обязательные поля.');
+            let hasError = false;
+
+            if (!attend) {
+                document.getElementById('attendGroup').classList.add('error');
+                hasError = true;
+            }
+
+            if (!name) {
+                document.getElementById('guestName').classList.add('error-input');
+                hasError = true;
+            }
+
+            if (hasError) {
+                const existingError = document.getElementById('formError');
+                if (!existingError) {
+                    const errorDiv = document.createElement('div');
+                    errorDiv.id = 'formError';
+                    errorDiv.className = 'error-text';
+                    errorDiv.textContent = '⚠️ Пожалуйста, заполните все обязательные поля.';
+                    document.getElementById('guestForm').prepend(errorDiv);
+                }
                 return;
             }
+
+            const errorEl = document.getElementById('formError');
+            if (errorEl) errorEl.remove();
 
             const food = Array.from(foodCheckboxes).filter(cb => cb.checked).map(cb => cb.value).join(', ');
             const drinks = Array.from(drinkCheckboxes).filter(cb => cb.checked).map(cb => cb.value).join(', ');
 
-            try {
-                const response = await fetch(`${SUPABASE_URL}/rest/v1/responses`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                        'apikey': SUPABASE_ANON_KEY,
-                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
-                    },
-                    body: JSON.stringify({
-                        name: name,
-                        attending: attend.value === 'coming' ? 'Придёт' : 
-                                   attend.value === 'coming_plus' ? 'С парой' : 'Не придёт',
-                        guests: document.querySelector('#guestForm .form-group input[type="text"]')?.value || '',
-                        food: food,
-                        drinks: drinks,
-                        comment: comment
-                    })
-                });
+            const submitBtn = this.querySelector('.submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Отправляется...';
 
-                if (response.ok) {
-                    alert('Спасибо! Ваш ответ сохранён.');
-                    this.reset();
-                } else {
-                    alert('Ошибка при сохранении. Попробуйте ещё раз.');
-                }
+            try {
+                // Формируем данные
+                const responseData = {
+                    name: name,
+                    attending: attend.value === 'coming' ? 'Придёт' : 
+                               attend.value === 'coming_plus' ? 'С парой' : 'Не придёт',
+                    food: food,
+                    drinks: drinks,
+                    comment: comment,
+                    date: new Date().toLocaleString('ru-RU')
+                };
+
+                // Формируем комментарий
+                const commentText = formatComment(responseData);
+                
+                // Открываем страницу создания комментария к Issue
+                const url = `https://github.com/${GITHUB_USER}/${GITHUB_REPO}/issues/${GITHUB_ISSUE_NUMBER}`;
+                
+                // Открываем Issue в новой вкладке, чтобы гость мог оставить комментарий
+                window.open(url, '_blank');
+                
+                // Показываем сообщение об успехе
+                showSuccess();
+                
             } catch (error) {
-                alert('Ошибка соединения. Проверьте интернет.');
+                console.error('Ошибка:', error);
+                alert('❌ Ошибка при сохранении. Попробуйте ещё раз.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Отправить!';
             }
         });
-
         // АНИМАЦИЯ
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.ivory-v2-reveal').forEach(el => {

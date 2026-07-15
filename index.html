@@ -263,18 +263,14 @@
         updateTimer();
         setInterval(updateTimer, 1000);
 
-                // ---- КОНФИГУРАЦИЯ GITHUB ISSUES ----
-        // ЗАМЕНИТЕ НА ВАШИ ДАННЫЕ:
-        const GITHUB_USER = 'Fedik2005';
-        const GITHUB_REPO = 'wedding';
-        const GITHUB_ISSUE_NUMBER = 1;  // Номер вашего Issue
-
-        // ПОКАЗАТЬ СООБЩЕНИЕ ОБ УСПЕХЕ
+               // ПОКАЗАТЬ СООБЩЕНИЕ ОБ УСПЕХЕ
         function showSuccess() {
             const form = document.querySelector('.ivory-v2-rsvp-form');
             const success = document.getElementById('successMessage');
             if (form) form.style.display = 'none';
-            if (success) success.classList.add('show');
+            if (success) success.style.display = 'block';
+            // Прокручиваем к сообщению
+            success.scrollIntoView({ behavior: 'smooth', block: 'center' });
         }
 
         // УБРАТЬ ОШИБКИ
@@ -288,30 +284,13 @@
             if (errorEl) errorEl.remove();
         }
 
-        // ФОРМИРУЕМ КОММЕНТАРИЙ ДЛЯ ISSUE
-        function formatComment(data) {
-            return `**Новый ответ гостя** (${data.date})
-
-**Имя:** ${data.name}
-**Присутствие:** ${data.attending}
-**Еда:** ${data.food || '—'}
-**Напитки:** ${data.drinks || '—'}
-**Комментарий:** ${data.comment || '—'}
-
----
-*Ответ отправлен через сайт приглашения*`;
-        }
-
-        // АНКЕТА - ОТПРАВКА В GITHUB ISSUES
+        // АНКЕТА
         document.getElementById('guestForm').addEventListener('submit', function(e) {
             e.preventDefault();
             clearErrors();
 
             const name = document.getElementById('guestName').value.trim();
             const attend = document.querySelector('input[name="attend"]:checked');
-            const foodCheckboxes = document.querySelectorAll('#guestForm .check-list input[type="checkbox"]');
-            const drinkCheckboxes = document.querySelectorAll('#guestForm .form-group:last-of-type .check-list input[type="checkbox"]');
-            const comment = document.getElementById('comment').value.trim();
 
             let hasError = false;
 
@@ -340,44 +319,21 @@
             const errorEl = document.getElementById('formError');
             if (errorEl) errorEl.remove();
 
-            const food = Array.from(foodCheckboxes).filter(cb => cb.checked).map(cb => cb.value).join(', ');
-            const drinks = Array.from(drinkCheckboxes).filter(cb => cb.checked).map(cb => cb.value).join(', ');
+            // Сохраняем ответ в localStorage (чтобы не потерять, если обновить страницу)
+            const responseData = {
+                name: name,
+                attending: attend.value === 'coming' ? 'Придёт' : 
+                           attend.value === 'coming_plus' ? 'С парой' : 'Не придёт',
+                date: new Date().toLocaleString('ru-RU')
+            };
+            
+            // Сохраняем в localStorage
+            const allResponses = JSON.parse(localStorage.getItem('wedding_answers') || '[]');
+            allResponses.push(responseData);
+            localStorage.setItem('wedding_answers', JSON.stringify(allResponses));
 
-            const submitBtn = this.querySelector('.submit-btn');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Отправляется...';
-
-            try {
-                // Формируем данные
-                const responseData = {
-                    name: name,
-                    attending: attend.value === 'coming' ? 'Придёт' : 
-                               attend.value === 'coming_plus' ? 'С парой' : 'Не придёт',
-                    food: food,
-                    drinks: drinks,
-                    comment: comment,
-                    date: new Date().toLocaleString('ru-RU')
-                };
-
-                // Формируем комментарий
-                const commentText = formatComment(responseData);
-                
-                // Открываем страницу создания комментария к Issue
-                const url = `https://github.com/${GITHUB_USER}/${GITHUB_REPO}/issues/${GITHUB_ISSUE_NUMBER}`;
-                
-                // Открываем Issue в новой вкладке, чтобы гость мог оставить комментарий
-                window.open(url, '_blank');
-                
-                // Показываем сообщение об успехе
-                showSuccess();
-                
-            } catch (error) {
-                console.error('Ошибка:', error);
-                alert('❌ Ошибка при сохранении. Попробуйте ещё раз.');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Отправить!';
-            }
+            // Показываем сообщение
+            showSuccess();
         });
         // АНИМАЦИЯ
         document.addEventListener('DOMContentLoaded', function() {

@@ -16,6 +16,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Подключаем конфиг с токенами (НЕ ЗАГРУЖАТЬ НА GITHUB!) -->
+    <script src="config.js"></script>
 </head>
 <body>
     
@@ -229,10 +232,10 @@
                              <!-- Сообщение об успехе -->
                             <div id="successMessage" style="display: none; text-align: center; padding: 40px 20px;">
                                 <p style="font-family: 'Ivory Garden Liana', 'Great Vibes', 'Caveat', cursive; font-size: 36px; color: #4a3f35; margin-bottom: 12px;">
-                                    Спасибо!
+                                    Спасибо! 💐
                                 </p>
                                 <p style="font-family: 'Cormorant Garamond', serif; font-size: 20px; color: #6b5b4b;">
-                                    Мы получили ваш ответ.
+                                    Мы получили ваш ответ. До встречи на свадьбе!
                                 </p>
                             </div>
                         </div>
@@ -255,6 +258,20 @@
 
     <style>
         .ivory-v2-template-badge { display: none !important; }
+
+        /* Сообщение об успехе */
+        .success-message {
+            display: none;
+            text-align: center;
+            padding: 40px 20px;
+            background: #f8f5f1;
+            border-radius: 12px;
+            border: 1px solid #d5cdc3;
+            margin: 20px 0;
+        }
+        .success-message.show {
+            display: block;
+        }
 
         /* Ошибка полей - коричневый цвет */
         .form-group.error label {
@@ -300,14 +317,18 @@
         updateTimer();
         setInterval(updateTimer, 1000);
 
-               // ПОКАЗАТЬ СООБЩЕНИЕ ОБ УСПЕХЕ
+        // ПОКАЗАТЬ СООБЩЕНИЕ ОБ УСПЕХЕ
         function showSuccess() {
             const form = document.querySelector('.ivory-v2-rsvp-form');
             const success = document.getElementById('successMessage');
             if (form) form.style.display = 'none';
-            if (success) success.style.display = 'block';
-            // Прокручиваем к сообщению
-            success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            if (success) {
+                success.classList.add('show');
+                success.style.display = 'block';
+                setTimeout(() => {
+                    success.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 100);
+            }
         }
 
         // УБРАТЬ ОШИБКИ
@@ -321,13 +342,16 @@
             if (errorEl) errorEl.remove();
         }
 
-        // АНКЕТА
-        document.getElementById('guestForm').addEventListener('submit', function(e) {
+        // АНКЕТА - ОТПРАВКА В TELEGRAM
+        document.getElementById('guestForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             clearErrors();
 
             const name = document.getElementById('guestName').value.trim();
             const attend = document.querySelector('input[name="attend"]:checked');
+            const foodCheckboxes = document.querySelectorAll('#guestForm .check-list input[type="checkbox"]');
+            const drinkCheckboxes = document.querySelectorAll('#guestForm .form-group:last-of-type .check-list input[type="checkbox"]');
+            const comment = document.getElementById('comment').value.trim();
 
             let hasError = false;
 
@@ -356,22 +380,70 @@
             const errorEl = document.getElementById('formError');
             if (errorEl) errorEl.remove();
 
-            // Сохраняем ответ в localStorage (чтобы не потерять, если обновить страницу)
-            const responseData = {
-                name: name,
-                attending: attend.value === 'coming' ? 'Придёт' : 
-                           attend.value === 'coming_plus' ? 'С парой' : 'Не придёт',
-                date: new Date().toLocaleString('ru-RU')
-            };
-            
-            // Сохраняем в localStorage
-            const allResponses = JSON.parse(localStorage.getItem('wedding_answers') || '[]');
-            allResponses.push(responseData);
-            localStorage.setItem('wedding_answers', JSON.stringify(allResponses));
+            const food = Array.from(foodCheckboxes).filter(cb => cb.checked).map(cb => cb.value).join(', ');
+            const drinks = Array.from(drinkCheckboxes).filter(cb => cb.checked).map(cb => cb.value).join(', ');
 
-            // Показываем сообщение
-            showSuccess();
+            const submitBtn = this.querySelector('.submit-btn');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Отправляется...';
+
+            try {
+                // Проверяем, что токены загружены
+                if (typeof TELEGRAM_TOKEN === 'undefined' || typeof TELEGRAM_CHAT_ID === 'undefined') {
+                    throw new Error('Токены не загружены. Проверьте файл config.js');
+                }
+
+                // Формируем сообщение для Telegram
+                const message = `📋 НОВЫЙ ОТВЕТ ГОСТЯ!
+
+👤 Имя: ${name}
+✅ Присутствие: ${attend.value === 'coming' ? 'Придёт' : attend.value === 'coming_plus' ? 'С парой' : 'Не придёт'}
+🍽️ Еда: ${food || '—'}
+🥂 Напитки: ${drinks || '—'}
+💬 Комментарий: ${comment || '—'}
+🕐 ${new Date().toLocaleString('ru-RU')}`;
+
+                // Отправляем в Telegram (прямой API)
+                const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
+                const response = await fetch(url, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: TELEGRAM_CHAT_ID,
+                        text: message,
+                        parse_mode: 'HTML'
+                    })
+                });
+
+                if (response.ok) {
+                    // Сохраняем в localStorage как резервную копию
+                    const allResponses = JSON.parse(localStorage.getItem('wedding_answers') || '[]');
+                    allResponses.push({
+                        name: name,
+                        attending: attend.value === 'coming' ? 'Придёт' : 
+                                   attend.value === 'coming_plus' ? 'С парой' : 'Не придёт',
+                        food: food,
+                        drinks: drinks,
+                        comment: comment,
+                        date: new Date().toLocaleString('ru-RU')
+                    });
+                    localStorage.setItem('wedding_answers', JSON.stringify(allResponses));
+
+                    showSuccess();
+                } else {
+                    const errorData = await response.json();
+                    console.error('Ошибка Telegram:', errorData);
+                    alert('❌ Ошибка при отправке в Telegram. Попробуйте ещё раз.');
+                }
+            } catch (error) {
+                console.error('Ошибка:', error);
+                alert('❌ Ошибка соединения. Проверьте интернет и файл config.js');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Отправить!';
+            }
         });
+
         // АНИМАЦИЯ
         document.addEventListener('DOMContentLoaded', function() {
             document.querySelectorAll('.ivory-v2-reveal').forEach(el => {

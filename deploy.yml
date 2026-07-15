@@ -1,0 +1,25 @@
+name: Deploy with secrets
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      
+      - name: Create config.js
+        run: |
+          echo "const TELEGRAM_TOKEN = '${{ secrets.TELEGRAM_TOKEN }}';" > config.js
+          echo "const TELEGRAM_CHAT_ID = '${{ secrets.TELEGRAM_CHAT_ID }}';" >> config.js
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./

@@ -1,15 +1,12 @@
 // ============================================================
 //  АНИМАЦИИ ДЛЯ СВАДЕБНОГО ПРИГЛАШЕНИЯ (Ivory Garden V2)
-//  Все элементы появляются ПРИ ПРОКРУТКЕ
+//  Адаптировано из оригинального JS-файла Simplewed
+//  Все пути к картинкам: ivory-garden/v2/
 // ============================================================
 
-// ---- ПУТИ К ВАШИМ КАРТИНКАМ ----
-// Все пути уже настроены на ваши файлы:
-// leaf1.png, leaf2.png, leaf4.png, leaf-divider.png, and.svg
-// icon1.png, icon2.png, icon3.png, icon4.png, icon6.png, icon7.png
+// ---- ФУНКЦИЯ ДЛЯ ПЛАВНОГО ПОЯВЛЕНИЯ ПРИ СКРОЛЛЕ ----
+// (Скопировано из оригинального JS, адаптировано под ваши классы)
 
-// ---- АНИМАЦИЯ ПРИ ПРОКРУТКЕ (появление блоков) ----
-// Создаём наблюдатель за появлением элементов
 document.addEventListener('DOMContentLoaded', function() {
     // Находим все блоки с классом .ivory-v2-reveal
     const reveals = document.querySelectorAll('.ivory-v2-reveal');
@@ -35,8 +32,8 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// ---- ПУЛЬСАЦИЯ СЕРДЕЧКА ----
-// Добавляем keyframes для сердечка (если их нет в CSS)
+// ---- ПУЛЬСАЦИЯ СЕРДЕЧКА (КАК В ОРИГИНАЛЕ) ----
+// Добавляем keyframes для сердечка
 if (!document.querySelector('#heart-keyframes')) {
     const style = document.createElement('style');
     style.id = 'heart-keyframes';
@@ -56,8 +53,7 @@ hearts.forEach(heart => {
     heart.style.animation = 'heartPulse 1.5s ease-in-out infinite';
 });
 
-// ---- ПЛАВНОЕ ПОЯВЛЕНИЕ ЛИСТЬЕВ (при скролле) ----
-// Листья появляются вместе с блоком, в котором находятся
+// ---- ПЛАВНОЕ ПОЯВЛЕНИЕ ЛИСТЬЕВ (КАК В ОРИГИНАЛЕ) ----
 const leaves = document.querySelectorAll('.ivory-v2-leaf');
 leaves.forEach(leaf => {
     // Добавляем плавное появление для листьев
@@ -76,7 +72,7 @@ leaves.forEach(leaf => {
     leafObserver.observe(leaf);
 });
 
-// ---- УВЕЛИЧЕНИЕ ТАЙМЕРА ПРИ НАВЕДЕНИИ ----
+// ---- АНИМАЦИЯ ТАЙМЕРА ПРИ НАВЕДЕНИИ ----
 const timerValues = document.querySelectorAll('.ivory-v2-countdown-value');
 timerValues.forEach(value => {
     value.style.transition = 'transform 0.3s ease';
@@ -88,7 +84,7 @@ timerValues.forEach(value => {
     });
 });
 
-// ---- ПЛАВНОЕ ПОЯВЛЕНИЕ АНКЕТЫ (при скролле) ----
+// ---- ПЛАВНОЕ ПОЯВЛЕНИЕ АНКЕТЫ (КАК В ОРИГИНАЛЕ) ----
 const rsvpForm = document.querySelector('.ivory-v2-rsvp-form');
 if (rsvpForm) {
     // Добавляем анимацию для анкеты

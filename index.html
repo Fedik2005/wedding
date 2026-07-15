@@ -16,9 +16,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Inter:wght@300;400;500;600;700&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Подключаем конфиг с токенами (НЕ ЗАГРУЖАТЬ НА GITHUB!) -->
-    <script src="config.js"></script>
 </head>
 <body>
     
@@ -317,6 +314,10 @@
         updateTimer();
         setInterval(updateTimer, 1000);
 
+        // ---- КОНФИГУРАЦИЯ SUPABASE ----
+        const SUPABASE_URL = 'https://bbxgzrvgyxpieevrjaef.supabase.co';
+        const SUPABASE_ANON_KEY = 'sb_publishable_3Sm-s5wCvwLG8pZCxAyCWQ_JZaQeF2b';
+
         // ПОКАЗАТЬ СООБЩЕНИЕ ОБ УСПЕХЕ
         function showSuccess() {
             const form = document.querySelector('.ivory-v2-rsvp-form');
@@ -342,7 +343,7 @@
             if (errorEl) errorEl.remove();
         }
 
-        // АНКЕТА - ОТПРАВКА В TELEGRAM
+        // АНКЕТА - ОТПРАВКА В SUPABASE
         document.getElementById('guestForm').addEventListener('submit', async function(e) {
             e.preventDefault();
             clearErrors();
@@ -388,56 +389,30 @@
             submitBtn.textContent = 'Отправляется...';
 
             try {
-                // Проверяем, что токены загружены
-                if (typeof TELEGRAM_TOKEN === 'undefined' || typeof TELEGRAM_CHAT_ID === 'undefined') {
-                    throw new Error('Токены не загружены. Проверьте файл config.js');
-                }
-
-                // Формируем сообщение для Telegram
-                const message = `📋 НОВЫЙ ОТВЕТ ГОСТЯ!
-
-👤 Имя: ${name}
-✅ Присутствие: ${attend.value === 'coming' ? 'Придёт' : attend.value === 'coming_plus' ? 'С парой' : 'Не придёт'}
-🍽️ Еда: ${food || '—'}
-🥂 Напитки: ${drinks || '—'}
-💬 Комментарий: ${comment || '—'}
-🕐 ${new Date().toLocaleString('ru-RU')}`;
-
-                // Отправляем в Telegram (прямой API)
-                const url = `https://api.telegram.org/bot${TELEGRAM_TOKEN}/sendMessage`;
-                const response = await fetch(url, {
+                const response = await fetch(`${SUPABASE_URL}/rest/v1/responses`, {
                     method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'apikey': SUPABASE_ANON_KEY,
+                        'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+                    },
                     body: JSON.stringify({
-                        chat_id: TELEGRAM_CHAT_ID,
-                        text: message,
-                        parse_mode: 'HTML'
-                    })
-                });
-
-                if (response.ok) {
-                    // Сохраняем в localStorage как резервную копию
-                    const allResponses = JSON.parse(localStorage.getItem('wedding_answers') || '[]');
-                    allResponses.push({
                         name: name,
                         attending: attend.value === 'coming' ? 'Придёт' : 
                                    attend.value === 'coming_plus' ? 'С парой' : 'Не придёт',
                         food: food,
                         drinks: drinks,
-                        comment: comment,
-                        date: new Date().toLocaleString('ru-RU')
-                    });
-                    localStorage.setItem('wedding_answers', JSON.stringify(allResponses));
+                        comment: comment
+                    })
+                });
 
+                if (response.ok) {
                     showSuccess();
                 } else {
-                    const errorData = await response.json();
-                    console.error('Ошибка Telegram:', errorData);
-                    alert('❌ Ошибка при отправке в Telegram. Попробуйте ещё раз.');
+                    alert('❌ Ошибка при сохранении. Попробуйте ещё раз.');
                 }
             } catch (error) {
-                console.error('Ошибка:', error);
-                alert('❌ Ошибка соединения. Проверьте интернет и файл config.js');
+                alert('❌ Ошибка соединения. Проверьте интернет.');
             } finally {
                 submitBtn.disabled = false;
                 submitBtn.textContent = 'Отправить!';

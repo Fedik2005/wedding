@@ -1,6 +1,6 @@
 // ============================================================
 //  АНИМАЦИИ ДЛЯ СВАДЕБНОГО ПРИГЛАШЕНИЯ (Ivory Garden V2)
-//  Скопировано из оригинального JS и адаптировано под ваши файлы
+//  Все элементы появляются ПРИ ПРОКРУТКЕ
 // ============================================================
 
 // ---- ПУТИ К ВАШИМ КАРТИНКАМ ----
@@ -8,47 +8,34 @@
 // leaf1.png, leaf2.png, leaf4.png, leaf-divider.png, and.svg
 // icon1.png, icon2.png, icon3.png, icon4.png, icon6.png, icon7.png
 
-// ---- АНИМАЦИЯ ПОЯВЛЕНИЯ ПРИ ЗАГРУЗКЕ ----
+// ---- АНИМАЦИЯ ПРИ ПРОКРУТКЕ (появление блоков) ----
+// Создаём наблюдатель за появлением элементов
 document.addEventListener('DOMContentLoaded', function() {
-    // Все блоки с классом .ivory-v2-reveal появляются с задержкой
+    // Находим все блоки с классом .ivory-v2-reveal
     const reveals = document.querySelectorAll('.ivory-v2-reveal');
     
-    // Если блоки уже есть на странице — показываем их
-    reveals.forEach((el, index) => {
-        // Добавляем небольшую задержку для каждого блока
-        setTimeout(() => {
-            el.classList.add('visible');
-        }, 100 + index * 80);
+    // Если блоки уже есть на странице — показываем их при скролле
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Добавляем класс visible, который запускает анимацию
+                entry.target.classList.add('visible');
+                // После появления отключаем наблюдение за этим элементом
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.15,        // 15% блока видно — запускаем анимацию
+        rootMargin: '0px 0px -50px 0px'  // Чуть раньше начинаем анимацию
     });
-});
-
-// ---- АНИМАЦИЯ ПРИ СКРОЛЛЕ (появление блоков) ----
-// Создаём наблюдатель за появлением элементов
-const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('visible');
-            // После появления отключаем наблюдение за этим элементом
-            observer.unobserve(entry.target);
-        }
+    
+    // Начинаем следить за всеми блоками
+    reveals.forEach(el => {
+        observer.observe(el);
     });
-}, {
-    threshold: 0.15,        // 15% блока видно — запускаем анимацию
-    rootMargin: '0px 0px -50px 0px'  // Чуть раньше начинаем анимацию
-});
-
-// Начинаем следить за всеми блоками, которые ещё не видны
-document.querySelectorAll('.ivory-v2-reveal:not(.visible)').forEach(el => {
-    observer.observe(el);
 });
 
 // ---- ПУЛЬСАЦИЯ СЕРДЕЧКА ----
-const hearts = document.querySelectorAll('.ivory-v2-heart');
-hearts.forEach(heart => {
-    heart.style.display = 'inline-block';
-    heart.style.animation = 'heartPulse 1.5s ease-in-out infinite';
-});
-
 // Добавляем keyframes для сердечка (если их нет в CSS)
 if (!document.querySelector('#heart-keyframes')) {
     const style = document.createElement('style');
@@ -62,16 +49,31 @@ if (!document.querySelector('#heart-keyframes')) {
     document.head.appendChild(style);
 }
 
-// ---- ПЛАВНОЕ ПОЯВЛЕНИЕ ЛИСТЬЕВ ----
+// Запускаем пульсацию для всех сердечек
+const hearts = document.querySelectorAll('.ivory-v2-heart');
+hearts.forEach(heart => {
+    heart.style.display = 'inline-block';
+    heart.style.animation = 'heartPulse 1.5s ease-in-out infinite';
+});
+
+// ---- ПЛАВНОЕ ПОЯВЛЕНИЕ ЛИСТЬЕВ (при скролле) ----
+// Листья появляются вместе с блоком, в котором находятся
 const leaves = document.querySelectorAll('.ivory-v2-leaf');
-leaves.forEach((leaf, index) => {
-    // Добавляем случайную задержку для каждого листа
-    leaf.style.opacity = '0';
+leaves.forEach(leaf => {
+    // Добавляем плавное появление для листьев
     leaf.style.transition = 'opacity 1s ease, transform 1s ease';
     
-    setTimeout(() => {
-        leaf.style.opacity = '0.7';
-    }, 500 + index * 300);
+    // Создаём наблюдатель для каждого листа
+    const leafObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                leaf.style.opacity = '0.7';
+                leafObserver.unobserve(leaf);
+            }
+        });
+    }, { threshold: 0.1 });
+    
+    leafObserver.observe(leaf);
 });
 
 // ---- УВЕЛИЧЕНИЕ ТАЙМЕРА ПРИ НАВЕДЕНИИ ----
@@ -86,21 +88,30 @@ timerValues.forEach(value => {
     });
 });
 
-// ---- ПЛАВНОЕ ПОЯВЛЕНИЕ АНКЕТЫ ----
+// ---- ПЛАВНОЕ ПОЯВЛЕНИЕ АНКЕТЫ (при скролле) ----
 const rsvpForm = document.querySelector('.ivory-v2-rsvp-form');
 if (rsvpForm) {
+    // Добавляем анимацию для анкеты
     rsvpForm.style.opacity = '0';
     rsvpForm.style.transform = 'translateY(20px)';
     rsvpForm.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
     
-    setTimeout(() => {
-        rsvpForm.style.opacity = '1';
-        rsvpForm.style.transform = 'translateY(0)';
-    }, 800);
+    // Создаём наблюдатель для анкеты
+    const formObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                rsvpForm.style.opacity = '1';
+                rsvpForm.style.transform = 'translateY(0)';
+                formObserver.unobserve(rsvpForm);
+            }
+        });
+    }, { threshold: 0.2 });
+    
+    formObserver.observe(rsvpForm);
 }
 
 // ---- ПЕРЕКЛЮЧЕНИЕ МЕЖДУ ФОРМОЙ И СООБЩЕНИЕМ ----
 // (Функция showSuccess уже есть в вашем index.html)
 
-console.log('✅ Анимации загружены!');
+console.log('✅ Анимации загружены! Все элементы появляются при скролле.');
 console.log('📁 Пути к картинкам: ivory-garden/v2/');
